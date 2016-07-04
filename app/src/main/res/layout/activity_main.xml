@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.MainActivity">
+    <FrameLayout
+        android:id="@+id/base_fragment_id"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+      />
+   <RadioGroup
+
+        android:id="@+id/group_id"
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <RadioButton
+           android:gravity="center_horizontal"
+           android:checked="true"
+           android:id="@+id/home_id"
+          android:text="装修案例"
+           android:button="@null"
+           android:drawableTop="@drawable/home_selector"
+           android:textColor="@color/color_selector"
+            android:layout_weight="1"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content" />
+       <RadioButton
+           android:gravity="center_horizontal"
+           android:id="@+id/gallery_id"
+           android:text="图库"
+           android:button="@null"
+           android:drawableTop="@drawable/gallery_selector"
+           android:textColor="@color/color_selector"
+           android:layout_weight="1"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content" />
+       <RadioButton
+           android:gravity="center_horizontal"
+           android:id="@+id/strategy_id"
+           android:text="装修攻略"
+           android:button="@null"
+           android:drawableTop="@drawable/strategy_selector"
+           android:textColor="@color/color_selector"
+           android:layout_weight="1"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content" />
+       <RadioButton
+           android:gravity="center_horizontal"
+           android:id="@+id/design_id"
+           android:text="设计师"
+           android:button="@null"
+           android:drawableTop="@drawable/design_selector"
+           android:textColor="@color/color_selector"
+           android:layout_weight="1"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content" />
+   </RadioGroup>
+
+</LinearLayout>
