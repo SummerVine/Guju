@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Guju</string>
+    <string name="hou">装修后</string>
+    <string name="qian">装修前</string>
+    <string name="zhong">装修中</string>
+    <string name="strategy">装修攻略</string>
+    <string name="explain">说明</string>
+    <string name="type">类型</string>
+    <string name="goodrepu">计好评数</string>
 </resources>

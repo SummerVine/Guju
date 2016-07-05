@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+    android:background="#000000"
+    android:columnCount="3"
+    android:rowCount="4"
+    android:layout_height="match_parent">
+    <Button
+        android:layout_width="130dp"
+        android:layout_height="65dp"
+        android:padding="20dp"
+        android:text="装修灵感"
+       />
+
+    <Button
+        android:layout_width="130dp"
+        android:padding="20dp"
+        android:layout_height="65dp"
+        android:text="验房须知"
+        android:textSize="20sp" />
+
+    <Button
+        android:padding="20dp"
+        android:layout_width="130dp"
+        android:layout_height="65dp"
+        android:text="装修合同"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <Button
+        android:padding="20dp"
+        android:layout_width="130dp"
+        android:layout_height="65dp"
+        android:text="装修预算"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <Button
+        android:padding="20dp"
+        android:layout_width="130dp"
+        android:layout_height="65dp"
+        android:text="装修风水"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <Button
+        android:padding="20dp"
+        android:layout_width="130dp"
+        android:layout_height="65dp"
+        android:text="装修设计"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+    <Button
+        android:padding="20dp"
+        android:layout_width="130dp"
+        android:layout_height="65dp"
+        android:text="装修要点"
+        android:textSize="20sp" />
+
+</GridLayout>

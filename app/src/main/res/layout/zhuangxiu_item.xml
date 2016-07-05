@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+        <TextView
+            android:text="@string/explain"
+            android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+            android:id="@+id/tv_explain_id"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+           >
+        <TextView
+            android:text="@string/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/tv_type_id"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/guju_love"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/goodrepu"
+                android:id="@+id/tv_count_id"/>
+    </LinearLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_tupian_id"
+        android:background="@drawable/ic_launcher"/>
+
+</LinearLayout>
