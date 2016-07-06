@@ -99,10 +99,11 @@ public class StrategyFragment extends Fragment{
 
     private void aboutRecyclerView() {
         initAdapter();
+        //设置适配器
         rvdapter.addHeaderView(getView());
         rvdapter.addFooterView(getView());
         rv.setAdapter(rvdapter);
-        //设置适配器
+
     }
 
     private void initAdapter() {
