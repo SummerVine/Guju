@@ -19,7 +19,6 @@ public class MyApp extends Application {
         this.app=this;
         initVolley();
     }
-
     private void initVolley() {
         requestqueue= Volley.newRequestQueue(this);
     }
