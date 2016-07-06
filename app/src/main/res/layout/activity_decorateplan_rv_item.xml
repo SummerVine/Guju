@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="220dp"
+    >
+    <ImageView
+        android:id="@+id/decorate_iv_id"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/decorate_title_text"/>
+    <TextView
+        android:id="@+id/decorate_theme_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="装修主题"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#ffffff"
+        android:background="#88666633"
+        android:textSize="20dp"/>
+
 <TextView
     android:id="@+id/tv_id"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="40dp"
+    android:layout_below="@+id/decorate_iv_id"
     android:text="我是RecyclerView中的一部分哦"/>
-</LinearLayout>
+    <ImageView
+        android:id="@+id/decorate_author_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/decorate_title_text"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="160dp"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/iv_id"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignParentLeft="true"
+        />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_height="120dp"
+        android:layout_toRightOf="@+id/iv_id"
+
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+
+            >
+            <TextView
+                android:textSize="20dp"
+                android:id="@+id/Work_address_id"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="地址"
+
+                />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/ordinary_designer_icon"
+
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+
+            >
+            <TextView
+                android:textSize="15dp"
+                android:id="@+id/sex_id"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="女"
+                />
+            <TextView
+                android:textSize="15dp"
+                android:id="@+id/address_id"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="北京"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="案例："
+                />
+            <TextView
+                android:id="@+id/et_eg_id"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="攻略："
+                />
+            <TextView
+                android:id="@+id/et_work_id"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="分享："
+                />
+            <TextView
+                android:id="@+id/et_share_id"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

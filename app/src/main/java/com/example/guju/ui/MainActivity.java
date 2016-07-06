@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.example.guju.R;
 import com.example.guju.fragment.BaseFragment;
-import com.example.guju.fragment.DecoratePlanFragment;
 
 
 import java.util.ArrayList;
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         group = ((RadioGroup) findViewById(R.id.group_id));
         //new 4 个模块的fragment--------------------需要各自更改
-        Fragment fragment1 = new DecoratePlanFragment();
+        Fragment fragment1 = new BaseFragment();
         Fragment fragment2 = new BaseFragment();
         Fragment fragment3 = new BaseFragment();
         Fragment fragment4 = new BaseFragment();
