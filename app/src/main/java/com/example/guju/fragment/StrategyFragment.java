@@ -107,7 +107,7 @@ public class StrategyFragment extends BaseFragment{
     }
 
     private void initAdapter() {
-        rvdapter = new StrategyAdapter(strategyData);
+        rvdapter = new StrategyAdapter();
         rvdapter.openLoadAnimation();
         rv.setAdapter(rvdapter);
         rvdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
