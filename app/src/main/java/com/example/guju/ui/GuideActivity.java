@@ -72,6 +72,7 @@ public class GuideActivity extends Activity {
 
         for (int i = 0; i <imgs.length ; i++) {
             ImageView view=new ImageView(this);
+            view.setScaleType(ImageView.ScaleType.FIT_XY);
             view.setImageResource(imgs[i]);
             if (i==imgs.length-1){
                 view.setOnClickListener(new View.OnClickListener() {
