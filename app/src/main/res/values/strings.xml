@@ -1,3 +1,31 @@
 <resources>
-    <string name="app_name">DecorateGuju</string>
+    <string name="app_name">Guju</string>
+    <string name="hou">装修后</string>
+    <string name="qian">装修前</string>
+    <string name="zhong">装修中</string>
+    <string name="strategy">装修攻略</string>
+    <string name="explain">说明</string>
+    <string name="type">类型</string>
+    <string name="goodrepu">计好评数</string>
+    <string name="wuran">装修污染</string>
+    <string name="yanshou">装修验改</string>
+    <string name="huli">家具护理</string>
+    <string name="peishi">家居配饰</string>
+    <string name="jiasi">家电家私</string>
+    <string name="xuancai">装修选材</string>
+    <string name="anzhuang">建材安装</string>
+    <string name="chaigai">拆改工程</string>
+    <string name="shuidian">水电工程</string>
+    <string name="fangshui">防水工程</string>
+    <string name="niwa">泥瓦工程</string>
+    <string name="mugong">木工工程</string>
+    <string name="youqi">油漆工程</string>
+    <string name="linggan">装修灵感</string>
+    <string name="xuzhi">验房须知</string>
+    <string name="hetong">装修合同</string>
+    <string name="yusuan">装修预算</string>
+    <string name="fengshui">装修风水</string>
+    <string name="sheji">装修设计</string>
+    <string name="yandian">装修要点</string>
+
 </resources>
