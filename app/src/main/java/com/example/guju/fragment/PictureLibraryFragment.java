@@ -35,7 +35,7 @@ public class PictureLibraryFragment extends BaseFragment{
          pictureview=inflater.inflate(R.layout.activity_picture,null);
          initWidtge();
          DownloadData();
-        PictureAdapter pictureadapter=new PictureAdapter(new ArrayList<PictureFactory.PhotosBean>());
+        PictureAdapter pictureadapter=new PictureAdapter(new ArrayList<PictureFactory.PhotosBean>(),getContext());
 
         return pictureview;
     }
