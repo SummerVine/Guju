@@ -24,8 +24,8 @@ public class GuideActivity extends Activity {
     private SharedPreferences share;
     private Intent intent;
     private ViewPager viewPager;
-
     private List<ImageView> imageViews=new ArrayList<ImageView>();
+    //第一次登陆导引界面准备数据源
     private int[] imgs={R.mipmap.guju_guide1,R.mipmap.guju_guide2,R.mipmap.guju_guide3,R.mipmap.guju_guide4};
     private Handler handler=new Handler(){
         @Override
