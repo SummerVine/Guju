@@ -1,5 +1,7 @@
 package com.example.guju.fragment;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
@@ -29,6 +31,7 @@ public class PictureLibraryFragment extends BaseFragment{
     private SwipeRefreshLayout swiperefreshlayout_id;
     private List<PictureFactory.PhotosBean> photos;
 
+    @TargetApi(Build.VERSION_CODES.M)
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package com.example.guju.Bean;
+package com.example.guju.bean;
 
 import java.util.List;
 

@@ -8,12 +8,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.guju.Bean.Designers;
+import com.bumptech.glide.Glide;
+import com.example.guju.bean.Designers;
 import com.example.guju.R;
 
 import java.util.List;
 
-import it.sephiroth.android.library.picasso.Picasso;
+
 
 /**
  * Created by Administrator on 2016/7/5.
@@ -63,7 +64,7 @@ public class MyAdapter extends BaseAdapter {
 
         }
       Uri url= (Uri.parse(data.get(i).getUserImage().getSmall()));
-        Picasso.with(context).load(url).into(vh.iv_id);
+        Glide.with(context).load(url).into(vh.iv_id);
         vh.et_work_id.setText(data.get(i).getProductLikeNum());
         vh.address_id.setText(data.get(i).getProvince());
         vh.et_eg_id.setText(data.get(i).getProjectNum());

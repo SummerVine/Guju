@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import com.example.guju.Bean.Designers;
+import com.example.guju.bean.Designers;
 import com.example.guju.MyApp;
 import com.example.guju.R;
 import com.example.guju.adapter.MyAdapter;
