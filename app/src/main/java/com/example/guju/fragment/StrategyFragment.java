@@ -24,7 +24,7 @@ import com.example.guju.entity.Strategy;
 import java.util.List;
 
 
-public class StrategyFragment extends Fragment{
+public class StrategyFragment extends BaseFragment{
     private Activity activity;
     private List<Strategy> strategyData;
     private RecyclerView rv;
@@ -46,9 +46,9 @@ public class StrategyFragment extends Fragment{
     }
 
     private void initPopubWindow() {
-        contentView1 = View.inflate(getContext(), R.layout.zhuangxiu_popup_qian_item, null);
-        contentView2 = View.inflate(getContext(), R.layout.zhuangxiu_popup_zhong_item, null);
-        contentView3 = View.inflate(getContext(), R.layout.zhuangxiu_popup_hou_item, null);
+        contentView1 = View.inflate(getActivity(), R.layout.zhuangxiu_popup_qian_item, null);
+        contentView2 = View.inflate(getActivity(), R.layout.zhuangxiu_popup_zhong_item, null);
+        contentView3 = View.inflate(getActivity(), R.layout.zhuangxiu_popup_hou_item, null);
 
         pw1 = new PopupWindow(contentView1, ViewPager.LayoutParams.MATCH_PARENT,
                 ViewPager.LayoutParams.WRAP_CONTENT);
