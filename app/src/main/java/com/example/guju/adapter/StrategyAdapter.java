@@ -15,7 +15,7 @@ public class StrategyAdapter extends BaseQuickAdapter<Strategy> {
 
 
     public StrategyAdapter(int dataSize) {
-        super(R.layout.activity_decorateplan_rv_item, DataServer.getStrategy(100));
+        super(R.layout.zhuangxiu_item, DataServer.getStrategy(dataSize));
     }
 
 
@@ -25,6 +25,6 @@ public class StrategyAdapter extends BaseQuickAdapter<Strategy> {
 
     @Override
     protected void convert(BaseViewHolder baseViewHolder, Strategy strategy) {
-        baseViewHolder.setText(R.id.tv_id, strategy.getTypeName());
+        baseViewHolder.setText(R.id.tv_type_id, strategy.getTypeName());
     }
 }

@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
    <GridView
        android:numColumns="3"
-
+       android:background="@drawable/item_img_bg"
        android:layout_width="match_parent"
        android:layout_height="260dp"
        android:id="@+id/lv_dialog_id">

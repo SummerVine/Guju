@@ -6,6 +6,7 @@
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:text="@string/strategy"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/qian"
-            android:textSize="20sp"
+
             android:paddingLeft="40dp"
             />
         <ImageView
@@ -32,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/zhong"
-            android:textSize="20sp"
+
             android:paddingLeft="40dp"/>
         <ImageView
             android:id="@+id/iv_zhong_id"
@@ -46,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
            android:text="@string/hou"
-            android:textSize="20sp"
+
             android:paddingLeft="40dp"/>
         <ImageView
             android:id="@+id/iv_hou_id"
@@ -57,11 +58,10 @@
             android:background="@drawable/strategy_img_selector"
             android:paddingLeft="25dp"/>
     </LinearLayout>
-<android.support.v4.widget.SwipeRefreshLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1"
-    android:id="@+id/srl_id"
-    >
-</android.support.v4.widget.SwipeRefreshLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/zhuangxiu_rv_id"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

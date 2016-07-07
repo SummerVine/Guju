@@ -15,7 +15,7 @@ import com.example.guju.bean.Designers;
 import com.example.guju.MyApp;
 import com.example.guju.R;
 import com.example.guju.adapter.MyAdapter;
-import com.example.guju.ui.DetailActivity;
+import com.example.guju.ui.StrategyDetailActivity;
 import com.example.guju.url.commont;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -81,7 +81,7 @@ public class fourFragment extends  BaseFragment {
                 pull_refresh_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent intent=new Intent(context, DetailActivity.class);
+                        Intent intent=new Intent(context, StrategyDetailActivity.class);
                           startActivity(intent);
                     }
                 });

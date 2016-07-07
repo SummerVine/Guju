@@ -5,6 +5,7 @@
     android:rowCount="3"
     android:layout_height="match_parent">
    <GridView
+       android:background="@drawable/item_img_bg"
        android:numColumns="3"
        android:rowCount="3"
        android:layout_width="match_parent"
