@@ -29,10 +29,10 @@ public class StrategyViewPagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        ImageView imageView = imgData.get(position);
+        ImageView img = imgData.get(position);
 
-        container.addView(imageView);
-        return super.instantiateItem(container, position);
+        container.addView(img);
+        return img;
     }
 
     @Override

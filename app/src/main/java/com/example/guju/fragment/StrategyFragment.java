@@ -41,9 +41,9 @@ public class  StrategyFragment extends BaseFragment{
     private Activity activity;
     private FragmentActivity fragmentActivity;
     private List<ImageView> imgData;
-    private RecyclerView rv;
+    private RecyclerView zhuangxiu_rv_id;
     private StrategyAdapter rvdapter;
-    private ViewPager vp_id;
+    private ViewPager zhuangxiu_vp_id;
     private LinearLayout ll_scontainer_id;
     private LinearLayout layout;
     private GridView gridView;
@@ -52,7 +52,7 @@ public class  StrategyFragment extends BaseFragment{
     private boolean isContinue=true;
     private ImageView iv_qian;
     private TextView tv_qian_id;
-    private StrategyViewPagerAdapter viewPagerAdapter;
+    private StrategyViewPagerAdapter vpAdapter;
 
 
     public void showPopupWindow(View parent) {
@@ -92,15 +92,15 @@ public class  StrategyFragment extends BaseFragment{
         @Override
         public void handleMessage(Message msg) {
             // ①判断ViewPager中目前播放的图片的索引值
-            if (vp_id.getCurrentItem() > vp_id.getChildCount()) {
+            if (zhuangxiu_vp_id.getCurrentItem() > zhuangxiu_vp_id.getChildCount()) {
                 // a）若索引值>最大的索引值，将当前的ViewPager的索引值设置为0
-                vp_id.setCurrentItem(0);
+                zhuangxiu_vp_id.setCurrentItem(0);
                 ll_scontainer_id.getChildAt(2).setEnabled(true);
                 ll_scontainer_id.getChildAt(0).setEnabled(false);
             } else {
                 // b）否则，将当前的ViewPager的索引值=当前索引值+1
-                int currentIndex=vp_id.getCurrentItem();
-                vp_id.setCurrentItem(currentIndex+ 1);
+                int currentIndex=zhuangxiu_vp_id.getCurrentItem();
+                zhuangxiu_vp_id.setCurrentItem(currentIndex+ 1);
                 ll_scontainer_id.getChildAt(currentIndex).setEnabled(true);
                 ll_scontainer_id.getChildAt(currentIndex + 1).setEnabled(false);
             }
@@ -118,9 +118,8 @@ public class  StrategyFragment extends BaseFragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_zhuangxiu, null);
-        tv_qian_id = (TextView) view.findViewById(R.id.tv_qian_id);
-        rv = (RecyclerView)view.findViewById(R.id.zhuangxiu_rv_id);
-        rv.setLayoutManager(new LinearLayoutManager(activity));
+        zhuangxiu_rv_id = (RecyclerView)view.findViewById(R.id.zhuangxiu_rv_id);
+        zhuangxiu_rv_id.setLayoutManager(new LinearLayoutManager(activity));
         iv_qian = (ImageView)view.findViewById(R.id.iv_qian_id);
 
         iv_qian.setOnClickListener(new View.OnClickListener() {
@@ -142,7 +141,7 @@ public class  StrategyFragment extends BaseFragment{
 
     public View getView() {
         View view=LayoutInflater.from(activity).inflate(R.layout.zhuangxiu_main, null);
-        vp_id = (ViewPager) view.findViewById(R.id.zhuangxiu_vp_id);
+        zhuangxiu_vp_id = (ViewPager) view.findViewById(R.id.zhuangxiu_vp_id);
         ll_scontainer_id = (LinearLayout) view.findViewById(R.id.ll_scontainer_id);
         //关于ViewPager的操作
         aboutViewPager();
@@ -172,21 +171,21 @@ private final class MyOnClickListener implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        vp_id.setCurrentItem((Integer) view.getTag());
+        zhuangxiu_vp_id.setCurrentItem((Integer) view.getTag());
     }
 }
     private void aboutLitterDots() {
         MyOnClickListener mylistener = new MyOnClickListener();
         for (int i = 0; i < imgData.size(); i++) {
-            ImageView dot = new ImageView(activity);
-            dot.setTag(i);
-            dot.setEnabled(true);
-            dot.setOnClickListener(mylistener);
-            dot.setImageResource(R.drawable.decorate_plan_dot_selector);
-            ll_scontainer_id.addView(dot);
+            ImageView dots = new ImageView(getActivity());
+            dots.setTag(i);
+            dots.setEnabled(true);
+            dots.setOnClickListener(mylistener);
+            dots.setImageResource(R.drawable.decorate_plan_dot_selector);
+            ll_scontainer_id.addView(dots);
             LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(16,16);
             params.setMargins(10,10,10,10);
-            dot.setLayoutParams(params);
+            dots.setLayoutParams(params);
         }
         ll_scontainer_id.getChildAt(0).setEnabled(false);
 
@@ -198,7 +197,7 @@ private final class MyOnClickListener implements View.OnClickListener{
         initAdapter();
         //设置适配器
         rvdapter.addHeaderView(getView());
-        rv.setAdapter(rvdapter);
+        zhuangxiu_rv_id.setAdapter(rvdapter);
 
 
     }
@@ -207,7 +206,7 @@ private final class MyOnClickListener implements View.OnClickListener{
     private void initAdapter() {
         rvdapter = new StrategyAdapter(10);
         rvdapter.openLoadAnimation();
-        rv.setAdapter(rvdapter);
+        zhuangxiu_rv_id.setAdapter(rvdapter);
         rvdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
@@ -218,18 +217,18 @@ private final class MyOnClickListener implements View.OnClickListener{
     private void aboutViewPager() {
         //准备数据源
         imgData = new LinkedList<>();
-        for (int i = 0; i <= 2; i++) {
+        for (int i = 0; i <=4; i++) {
             ImageView iv = new ImageView(activity);
             iv.setImageResource(R.drawable.decorate_loading_image);
             iv.setScaleType(ImageView.ScaleType.FIT_XY);
             imgData.add(iv);
         }
         //准备适配器
-        viewPagerAdapter = new StrategyViewPagerAdapter(imgData);
+        vpAdapter = new StrategyViewPagerAdapter(imgData);
 
         //设置适配器
-        vp_id.setAdapter(viewPagerAdapter);
-        vp_id.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+        zhuangxiu_vp_id.setAdapter(vpAdapter);
+        zhuangxiu_vp_id.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 for (int i = 0; i < ll_scontainer_id.getChildCount(); i++) {
