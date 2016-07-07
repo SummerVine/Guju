@@ -11,11 +11,11 @@ import com.example.guju.entity.DecoratePlan;
  */
 public class DecoratePlanRvAdapter extends BaseQuickAdapter<DecoratePlan> {
     public DecoratePlanRvAdapter() {
-        super( R.layout.activity_decorateplan_rv_item, DataServer.getSampleData(100));
+        super( R.layout.decorate_rvitem_activity, DataServer.getSampleData(100));
     }
 
     public DecoratePlanRvAdapter(int dataSize) {
-        super( R.layout.activity_decorateplan_rv_item, DataServer.getSampleData(dataSize));
+        super( R.layout.decorate_rvitem_activity, DataServer.getSampleData(dataSize));
     }
 
     @Override

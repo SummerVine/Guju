@@ -1,6 +1,7 @@
 package com.example.guju.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,13 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.guju.R;
 import com.example.guju.adapter.DecoratePlanRvAdapter;
 import com.example.guju.adapter.DecoratePlanVpAdapter;
 import com.example.guju.entity.DecoratePlan;
+import com.example.guju.ui.DecorateRvDetailsActivity;
+import com.example.guju.ui.DecorateVPDetailsActivity;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -63,8 +65,6 @@ public class DecoratePlanFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         activity = getActivity();
-
-
         super.onCreate(savedInstanceState);
 
     }
@@ -72,7 +72,7 @@ public class DecoratePlanFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_decorateplan_fragment, null);
+        View view = inflater.inflate(R.layout.decorate_fragment_activity, null);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_id);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(activity));
         return view;
@@ -94,7 +94,7 @@ public class DecoratePlanFragment extends BaseFragment {
     }
 
     public View getHeaderView() {
-        View view=LayoutInflater.from(activity).inflate(R.layout.activity_decorate_viewpager_activity, null);
+        View view=LayoutInflater.from(activity).inflate(R.layout.decorate_viewpager_activity, null);
         vp_id = (ViewPager) view.findViewById(R.id.decorate_vp_id);
         ll_container_id = (LinearLayout) view.findViewById(R.id.ll_container_id);
         //关于ViewPager
@@ -105,7 +105,7 @@ public class DecoratePlanFragment extends BaseFragment {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity, "click View", Toast.LENGTH_LONG).show();
+               activity.startActivity(new Intent(activity, DecorateVPDetailsActivity.class));
             }
         });
         return view;
@@ -118,7 +118,7 @@ public class DecoratePlanFragment extends BaseFragment {
         mQuickAdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(activity, "" + Integer.toString(position), Toast.LENGTH_LONG).show();
+                activity.startActivity(new Intent(activity, DecorateRvDetailsActivity.class));
             }
         });
     }
