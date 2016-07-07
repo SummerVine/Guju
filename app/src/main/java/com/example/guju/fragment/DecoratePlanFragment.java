@@ -72,7 +72,7 @@ public class DecoratePlanFragment extends BaseFragment {
         mQuickAdapter.addFooterView(getView());
         mRecyclerView.setAdapter(mQuickAdapter);
         //设置适配器
-        mRecyclerView.setAdapter(mQuickAdapter);
+
     }
     public View getView() {
         View view = activity.getLayoutInflater().inflate(R.layout.headview, null);
