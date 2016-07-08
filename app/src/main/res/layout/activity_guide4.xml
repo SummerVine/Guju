@@ -5,21 +5,23 @@
     android:layout_height="match_parent">
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="50dp"
     >
     <TextView
-        android:textSize="40dp"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="设计师"
+        android:textColor="#000000"
+        android:layout_marginTop="15dp"
      android:layout_centerHorizontal="true"
         />
 <Button
-    android:textSize="30dp"
-    android:onClick="dingwei"
+
+    android:text="北京"
     android:id="@+id/city_button_id"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_alignParentRight="true"
 
     />
