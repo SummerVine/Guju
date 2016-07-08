@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/7/5.
  */
-public class fourFragment extends  BaseFragment {
+public class FourFragment extends  BaseFragment {
 
     private View view;
     private PullToRefreshListView pull_refresh_list;
