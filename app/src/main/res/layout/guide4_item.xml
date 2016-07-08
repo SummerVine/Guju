@@ -21,15 +21,16 @@
             android:layout_height="40dp"
             >
             <TextView
-                android:textSize="20sp"
+                android:textColor="#000000"
+                android:textSize="15sp"
                 android:id="@+id/UserName_id"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:text="名称"
                 />
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@mipmap/ordinary_designer_icon"
                 />
         </LinearLayout>
@@ -38,6 +39,7 @@
             android:layout_height="40dp"
             >
             <TextView
+                android:textColor="#000000"
                 android:textSize="15dp"
                 android:id="@+id/sex_id"
                 android:layout_width="40dp"
@@ -45,6 +47,7 @@
                 android:text="女"
                 />
             <TextView
+                android:textColor="#000000"
                 android:textSize="15dp"
                 android:id="@+id/provice_id"
                 android:layout_width="40dp"
@@ -58,27 +61,32 @@
             android:orientation="horizontal"
             >
             <TextView
+                android:textColor="#000000"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="案例："
                 />
             <TextView
+
                 android:id="@+id/projectNum_id"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 />
             <TextView
+                android:textColor="#000000"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="攻略："
                 />
             <TextView
+
                 android:id="@+id/producrLikeNum_id"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
 
                 />
             <TextView
+                android:textColor="#000000"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="分享："
