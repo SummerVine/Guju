@@ -67,6 +67,7 @@ public class MyAdapter extends BaseAdapter {
         Glide.with(context).load(url).into(vh.iv_id);
         vh.UserName_id.setText((CharSequence) data.get(i).getUserName());
         vh.PhotoNum_id.setText(data.get(i).getPhotoNum()+"");
+
         vh.producrLikeNum_id.setText(data.get(i).getProductLikeNum()+"");
         vh.projectNum_id.setText(data.get(i).getProjectNum()+"");
         vh.sex_id.setText(data.get(i).getSex()+"");
