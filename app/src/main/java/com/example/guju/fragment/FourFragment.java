@@ -1,20 +1,21 @@
 package com.example.guju.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import com.example.guju.bean.Designers;
 import com.example.guju.MyApp;
 import com.example.guju.R;
 import com.example.guju.adapter.MyAdapter;
+import com.example.guju.bean.Designers;
+import com.example.guju.ui.CityActivity;
 import com.example.guju.ui.StrategyDetailActivity;
 import com.example.guju.url.commont;
 import com.google.gson.Gson;
@@ -33,8 +34,7 @@ public class FourFragment extends  BaseFragment {
     private PullToRefreshListView pull_refresh_list;
     private MyAdapter  adapter;
    private List<Designers.ProfessionalsBean> data;
-    private Context context;
-
+    private Button citySelect;
 
 
     @Override
@@ -42,11 +42,20 @@ public class FourFragment extends  BaseFragment {
         initView();
 
       view=  inflater.inflate(R.layout.activity_guide4,null);
+        citySelect = ((Button) view.findViewById(R.id.city_button_id));
+        citySelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(), CityActivity.class);
+                startActivityForResult(intent,100);
+            }
+        });
+
         pull_refresh_list= (PullToRefreshListView) view.findViewById(R.id.pull_refresh_list);
 
         data=new LinkedList<>();
         initData(data);
-       adapter=new MyAdapter(data,context);
+       adapter=new MyAdapter(data,getActivity().getApplicationContext());
         pull_refresh_list.setAdapter(adapter);
           pull_refresh_list.setMode(PullToRefreshBase.Mode.BOTH);
         pull_refresh_list.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
@@ -64,13 +73,18 @@ public class FourFragment extends  BaseFragment {
         });
         return view;
     }
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode==100&&resultCode==200){
+            citySelect.setText(data.getStringExtra("city"));
+        }
+    }
     private void initView() {
 
     }
 
     private void initData(final List<Designers.ProfessionalsBean> data) {
-        StringRequest request=new StringRequest(String.format(commont.url4), new Response.Listener<String>(){
+        StringRequest request=new StringRequest(commont.url4, new Response.Listener<String>(){
 
 
             @Override
@@ -81,7 +95,7 @@ public class FourFragment extends  BaseFragment {
                 pull_refresh_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent intent=new Intent(context, StrategyDetailActivity.class);
+                        Intent intent=new Intent(getActivity(), StrategyDetailActivity.class);
                           startActivity(intent);
                     }
                 });
