@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+    <ImageView
+        android:id="@+id/back_freedesign_id"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textColor="#000000"
+        android:text="城市筛选"
+        android:textSize="20sp"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/autocompat_city_id"
+        android:layout_centerVertical="true"
+        android:hint="中文/拼音"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:completionThreshold="1"
+        android:background="@android:drawable/alert_light_frame"
+        android:layout_height="60dp" />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/neighbor_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<ListView
+    android:id="@+id/listview_city_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/dialog_city_id"
+            android:layout_width="60dp"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            android:visibility="gone"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/maskview_bg"/>
+        <com.example.guju.view.SideBarView
+            android:background="#99dddddd"
+            android:layout_alignParentRight="true"
+            android:id="@+id/sidebar_city_id"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+</LinearLayout>
+

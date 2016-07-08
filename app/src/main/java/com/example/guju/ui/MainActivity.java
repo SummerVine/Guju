@@ -1,11 +1,14 @@
 package com.example.guju.ui;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -13,7 +16,7 @@ import com.example.guju.R;
 import com.example.guju.fragment.DecoratePlanFragment;
 import com.example.guju.fragment.PictureLibraryFragment;
 import com.example.guju.fragment.StrategyFragment;
-import com.example.guju.fragment.fourFragment;
+import com.example.guju.fragment.FourFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup group;
     private List<Fragment> fragments = new ArrayList<>();
     private boolean isExit = false;
+    private ImageView login;
+    private ImageView freeDesign;
     private Handler mHandler=new Handler(){
     @Override
     public void handleMessage(Message msg) {
@@ -34,10 +39,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        aboutFreedesign();
+        aboutLogin();
         linked();
 
     }
+    private void aboutFreedesign() {
+        freeDesign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, FreedesignActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
+    private void aboutLogin() {
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
     private void linked() {
         group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -52,12 +76,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        login = ((ImageView)findViewById(R.id.image_login_id));
+        freeDesign = ((ImageView) findViewById(R.id.image_freedesign_id));
         group = ((RadioGroup) findViewById(R.id.group_id));
         //new 4 个模块的fragment--------------------需要各自更改
         Fragment fragment1 = new DecoratePlanFragment();
         Fragment fragment2 = new PictureLibraryFragment();
         Fragment fragment3 = new StrategyFragment();
-        Fragment fragment4 = new fourFragment();
+        Fragment fragment4 = new FourFragment();
         fragments.add(fragment1);
         fragments.add(fragment2);
         fragments.add(fragment3);
