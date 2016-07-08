@@ -11,8 +11,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,11 +32,21 @@ import com.example.guju.R;
 
 import com.example.guju.adapter.StrategyAdapter;
 import com.example.guju.adapter.StrategyViewPagerAdapter;
+import com.example.guju.entity.Strategy;
 import com.example.guju.ui.DecorateRvDetailsActivity;
+import com.google.gson.Gson;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest;
 
 
 import java.util.LinkedList;
 import java.util.List;
+
+import de.greenrobot.event.EventBus;
+import de.greenrobot.event.Subscribe;
 
 
 public class  StrategyFragment extends BaseFragment{
@@ -45,6 +57,7 @@ public class  StrategyFragment extends BaseFragment{
     private StrategyAdapter rvdapter;
     private ViewPager zhuangxiu_vp_id;
     private LinearLayout ll_scontainer_id;
+    private SwipeRefreshLayout rl;
     private LinearLayout layout;
     private GridView gridView;
     private PopupWindow popupWindow;
@@ -119,6 +132,7 @@ public class  StrategyFragment extends BaseFragment{
         super.onCreate(savedInstanceState);
 
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_zhuangxiu, null);
@@ -145,6 +159,8 @@ public class  StrategyFragment extends BaseFragment{
                 showPopupWindow(iv_hou,title3);
             }
         });
+
+
 
         return view;
     }
@@ -264,4 +280,5 @@ private final class MyOnClickListener implements View.OnClickListener{
         isContinue = false;
         super.onDestroy();
     }
+
 }

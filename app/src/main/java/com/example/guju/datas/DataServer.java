@@ -31,9 +31,9 @@ public class DataServer {
         List<Strategy> list = new ArrayList<>();
         for (int i = 0; i < lenth; i++) {
             Strategy plan = new Strategy();
-            plan.setTitle("Chad" + (i+""));
-            plan.setCategoryName("谷居设计");
-            plan.setTypeName("装修设计师"+i);
+            plan.setCount(i);
+            plan.setType("谷居设计");
+
 //            plan.setPlanAuthorIcon("https://avatars1.githubusercontent.com/u/7698209?v=3&s=460");
 //            plan.setPlanImgUrl("https://avatars1.githubusercontent.com/u/7698209?v=3&s=460");
             list.add(plan);

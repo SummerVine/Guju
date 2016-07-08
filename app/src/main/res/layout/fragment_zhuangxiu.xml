@@ -58,10 +58,17 @@
             android:background="@drawable/strategy_img_selector"
             android:paddingLeft="25dp"/>
     </LinearLayout>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/zhuangxiu_rv_id"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/sfl_id"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/zhuangxiu_rv_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
     </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 </LinearLayout>
