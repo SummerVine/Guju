@@ -3,7 +3,7 @@ package com.example.guju.adapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.guju.R;
-import com.example.guju.datas.DecorateRvDataServer;
+import com.example.guju.datas.DataServer;
 import com.example.guju.entity.DecoratePlan;
 
 /**
@@ -11,11 +11,11 @@ import com.example.guju.entity.DecoratePlan;
  */
 public class DecoratePlanRvAdapter extends BaseQuickAdapter<DecoratePlan> {
     public DecoratePlanRvAdapter() {
-        super( R.layout.decorate_rvitem_activity, DecorateRvDataServer.getSampleData(100));
+        super( R.layout.decorate_rvitem_activity, DataServer.getSampleData(100));
     }
 
     public DecoratePlanRvAdapter(int dataSize) {
-        super( R.layout.decorate_rvitem_activity, DecorateRvDataServer.getSampleData(dataSize));
+        super( R.layout.decorate_rvitem_activity, DataServer.getSampleData(dataSize));
     }
 
     @Override

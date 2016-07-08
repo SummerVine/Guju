@@ -47,7 +47,7 @@ public class DecoratePlanFragment extends BaseFragment {
     private boolean isContinue=true;
     private ImageView decorete_iv_area_id;
     private TextView decorate_area_id;
-private PopupWindow popupWindow;
+    private PopupWindow popupWindow;
     private Handler handler=new Handler() {
         @Override
         public void handleMessage(Message msg) {

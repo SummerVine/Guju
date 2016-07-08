@@ -9,9 +9,9 @@ import java.util.List;
 /**
  * Created by liushuxin on 2016/7/6.
  */
-public class DecorateRvDataServer {
+public class DataServer {
 
-    private DecorateRvDataServer() {
+    private DataServer() {
     }
 
     public static List<DecoratePlan> getSampleData(int lenth) {
