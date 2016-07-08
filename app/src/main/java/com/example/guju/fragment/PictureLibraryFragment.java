@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -38,7 +37,7 @@ public class PictureLibraryFragment extends BaseFragment{
          pictureview=inflater.inflate(R.layout.activity_picture,null);
          initWidtge();
          DownloadData();
-        PictureAdapter pictureadapter=new PictureAdapter(new ArrayList<PictureFactory.PhotosBean>(),getContext());
+        PictureAdapter pictureadapter=new PictureAdapter(new ArrayList<PictureFactory.PhotosBean>(),getActivity().getApplicationContext());
 
         return pictureview;
     }
