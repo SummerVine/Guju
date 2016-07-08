@@ -1,6 +1,5 @@
 package com.example.guju.fragment;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
@@ -14,7 +13,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,27 +24,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.guju.R;
-
 import com.example.guju.adapter.StrategyAdapter;
 import com.example.guju.adapter.StrategyViewPagerAdapter;
-import com.example.guju.entity.Strategy;
 import com.example.guju.ui.DecorateRvDetailsActivity;
-import com.google.gson.Gson;
-import com.lidroid.xutils.HttpUtils;
-import com.lidroid.xutils.exception.HttpException;
-import com.lidroid.xutils.http.ResponseInfo;
-import com.lidroid.xutils.http.callback.RequestCallBack;
-import com.lidroid.xutils.http.client.HttpRequest;
-
 
 import java.util.LinkedList;
 import java.util.List;
-
-import de.greenrobot.event.EventBus;
-import de.greenrobot.event.Subscribe;
 
 
 public class  StrategyFragment extends BaseFragment{
