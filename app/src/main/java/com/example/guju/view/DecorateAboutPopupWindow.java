@@ -1,4 +1,4 @@
-package com.example.guju.entity;
+package com.example.guju.view;
 
 import android.app.Activity;
 import android.graphics.Color;
