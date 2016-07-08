@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="date">
+
+        <item>安庆</item>
+        <item>安阳</item>
+        <item>北京</item>
+        <item>保定</item>
+        <item>成都</item>
+        <item>重庆</item>
+        <item>大连</item>
+        <item>德州</item>
+        <item>鄂州</item>
+        <item>鄂尔多斯</item>
+        <item>福州</item>
+        <item>抚顺</item>
+        <item>广州</item>
+        <item>贵阳</item>
+        <item>杭州</item>
+        <item>哈尔滨</item>
+        <item>济南</item>
+        <item>吉林</item>
+        <item>昆明</item>
+        <item>开封</item>
+        <item>兰州</item>
+        <item>拉萨</item>
+        <item>棉阳</item>
+        <item>马鞍山</item>
+        <item>南京</item>
+        <item>宁波</item>
+        <item>平顶山</item>
+        <item>攀枝花</item>
+        <item>青岛</item>
+        <item>泉州</item>
+        <item>日照</item>
+        <item>日喀则</item>
+        <item>上海</item>
+        <item>深圳</item>
+        <item>天津</item>
+        <item>唐山</item>
+        <item>武汉</item>
+        <item>无锡</item>
+        <item>西安</item>
+        <item>西宁</item>
+        <item>岳阳</item>
+        <item>宜昌</item>
+        <item>珠海</item>
+        <item>郑州</item>
+
+    </string-array>
+</resources>
