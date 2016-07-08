@@ -63,7 +63,7 @@ public class MyAdapter extends BaseAdapter {
         }else{
             vh= (ViewHolder) view.getTag();
         }
-        Uri url= (Uri.parse(data.get(i).getUserImage().getSmall()));
+        Uri url= (Uri.parse(data.get(i).getUserImage().getLarge()));
         Glide.with(context).load(url).into(vh.iv_id);
         vh.UserName_id.setText((CharSequence) data.get(i).getUserName());
         vh.PhotoNum_id.setText(data.get(i).getPhotoNum()+"");
