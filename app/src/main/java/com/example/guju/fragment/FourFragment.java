@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.android.volley.Response;
@@ -15,7 +14,6 @@ import com.example.guju.MyApp;
 import com.example.guju.R;
 import com.example.guju.adapter.MyAdapter;
 import com.example.guju.bean.Designers;
-import com.example.guju.ui.CityActivity;
 import com.example.guju.ui.StrategyDetailActivity;
 import com.example.guju.url.commont;
 import com.google.gson.Gson;
@@ -34,7 +32,7 @@ public class FourFragment extends  BaseFragment {
     private PullToRefreshListView pull_refresh_list;
     private MyAdapter  adapter;
    private List<Designers.ProfessionalsBean> data;
-    private Button citySelect;
+  //  private Button citySelect;
 
 
     @Override
@@ -42,14 +40,14 @@ public class FourFragment extends  BaseFragment {
         initView();
 
       view=  inflater.inflate(R.layout.activity_guide4,null);
-        citySelect = ((Button) view.findViewById(R.id.city_button_id));
-        citySelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getActivity(), CityActivity.class);
-                startActivityForResult(intent,100);
-            }
-        });
+//        citySelect = ((Button) view.findViewById(R.id.city_button_id));
+//        citySelect.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getActivity(), CityActivity.class);
+//                startActivityForResult(intent,100);
+//            }
+//        });
 
         pull_refresh_list= (PullToRefreshListView) view.findViewById(R.id.pull_refresh_list);
 
@@ -73,12 +71,12 @@ public class FourFragment extends  BaseFragment {
         });
         return view;
     }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode==100&&resultCode==200){
-            citySelect.setText(data.getStringExtra("city"));
-        }
-    }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if (requestCode==100&&resultCode==200){
+//            citySelect.setText(data.getStringExtra("city"));
+//        }
+//    }
     private void initView() {
 
     }
