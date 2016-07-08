@@ -1,6 +1,8 @@
 package com.example.guju.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,13 +16,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.guju.R;
 import com.example.guju.adapter.DecoratePlanRvAdapter;
 import com.example.guju.adapter.DecoratePlanVpAdapter;
+import com.example.guju.entity.DecorateAboutPopupWindow;
 import com.example.guju.entity.DecoratePlan;
+import com.example.guju.ui.DecorateRvDetailsActivity;
+import com.example.guju.ui.DecorateVPDetailsActivity;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -39,6 +45,9 @@ public class DecoratePlanFragment extends BaseFragment {
     private DecoratePlan decorate;
     private DecoratePlanRvAdapter mQuickAdapter;
     private boolean isContinue=true;
+    private ImageView decorete_iv_area_id;
+    private TextView decorate_area_id;
+    private PopupWindow popupWindow;
     private Handler handler=new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -60,11 +69,10 @@ public class DecoratePlanFragment extends BaseFragment {
             }
         }
     };
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         activity = getActivity();
-
-
         super.onCreate(savedInstanceState);
 
     }
@@ -72,9 +80,30 @@ public class DecoratePlanFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_decorateplan_fragment, null);
+        View view = inflater.inflate(R.layout.decorate_fragment_activity, null);
+        decorete_iv_area_id = (ImageView) view.findViewById(R.id.decorete_iv_area_id);
+        decorate_area_id = (TextView) view.findViewById(R.id.decorate_area_id);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_id);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        decorete_iv_area_id.setTag(0);
+        decorete_iv_area_id.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if ((Integer)decorete_iv_area_id.getTag()==0){
+                    decorete_iv_area_id.setImageResource(R.drawable.guju_up);
+                    decorate_area_id.setTextColor(Color.GREEN);
+                    popupWindow= DecorateAboutPopupWindow.showPopupWindow(activity,decorete_iv_area_id,decorate_area_id);
+                    decorete_iv_area_id.setTag(1);
+                }
+                //TODO刘书新
+                else{
+                    popupWindow.dismiss();
+                    decorete_iv_area_id.setImageResource(R.drawable.guju_down);
+                    decorate_area_id.setTextColor(Color.BLACK);
+                    decorete_iv_area_id.setTag(0);
+                }
+            }
+        });
         return view;
     }
 
@@ -92,9 +121,9 @@ public class DecoratePlanFragment extends BaseFragment {
         //mQuickAdapter.addFooterView(getView());
         mRecyclerView.setAdapter(mQuickAdapter);
     }
-
+    //生成RecyclerView头
     public View getHeaderView() {
-        View view=LayoutInflater.from(activity).inflate(R.layout.activity_decorate_viewpager_activity, null);
+        View view=LayoutInflater.from(activity).inflate(R.layout.decorate_viewpager_activity, null);
         vp_id = (ViewPager) view.findViewById(R.id.decorate_vp_id);
         ll_container_id = (LinearLayout) view.findViewById(R.id.ll_container_id);
         //关于ViewPager
@@ -105,12 +134,12 @@ public class DecoratePlanFragment extends BaseFragment {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity, "click View", Toast.LENGTH_LONG).show();
+               activity.startActivity(new Intent(activity, DecorateVPDetailsActivity.class));
             }
         });
         return view;
     }
-
+   //RecyclerView适配器的初始化
     private void initAdapter() {
         mQuickAdapter = new DecoratePlanRvAdapter(10);
         mQuickAdapter.openLoadAnimation();
@@ -118,12 +147,11 @@ public class DecoratePlanFragment extends BaseFragment {
         mQuickAdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(activity, "" + Integer.toString(position), Toast.LENGTH_LONG).show();
+                activity.startActivity(new Intent(activity, DecorateRvDetailsActivity.class));
             }
         });
     }
-
-    //关于小远点的点击事件
+    //关于ViewPager中小圆点的点击事件
     private final class MyOnClickListener implements View.OnClickListener {
 
         @Override
@@ -131,7 +159,7 @@ public class DecoratePlanFragment extends BaseFragment {
             vp_id.setCurrentItem((Integer) view.getTag());
         }
     }
-    //关于小圆点
+    //关于ViewPager中的小圆点
     private void aboutDots() {
         MyOnClickListener listener = new MyOnClickListener();
         for (int i = 0; i < ds.size(); i++) {

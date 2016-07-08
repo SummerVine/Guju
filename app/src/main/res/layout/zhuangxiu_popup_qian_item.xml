@@ -1,59 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
    android:layout_width="match_parent"
-    android:columnCount="3"
-    android:rowCount="4"
     android:layout_height="match_parent">
-    <Button
-        android:layout_width="130dp"
-        android:layout_height="65dp"
-        android:padding="20dp"
-        android:text="@string/linggan"
-       />
-
-    <Button
-        android:layout_width="130dp"
-        android:padding="20dp"
-        android:layout_height="65dp"
-        android:text="@string/xuzhi"
-        android:textSize="20sp" />
-
-    <Button
-        android:padding="20dp"
-        android:layout_width="130dp"
-        android:layout_height="65dp"
-        android:text="@string/hetong"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-
-    <Button
-        android:padding="20dp"
-        android:layout_width="130dp"
-        android:layout_height="65dp"
-        android:text="@string/yusuan"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-
-    <Button
-        android:padding="20dp"
-        android:layout_width="130dp"
-        android:layout_height="65dp"
-        android:text="@string/fengshui"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-
-    <Button
-        android:padding="20dp"
-        android:layout_width="130dp"
-        android:layout_height="65dp"
-        android:text="@string/sheji"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-    <Button
-        android:padding="20dp"
-        android:layout_width="130dp"
-        android:layout_height="65dp"
-        android:text="@string/yandian"
-        android:textSize="20sp" />
-
-</GridLayout>
+   <GridView
+       android:numColumns="3"
+       android:background="@drawable/item_img_bg"
+       android:layout_width="match_parent"
+       android:layout_height="260dp"
+       android:id="@+id/lv_dialog_id">
+   </GridView>
+</LinearLayout>

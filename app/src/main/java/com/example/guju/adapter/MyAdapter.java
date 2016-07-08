@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.guju.bean.Designers;
 import com.example.guju.R;
+import com.example.guju.bean.Designers;
 
 import java.util.List;
 
@@ -22,9 +22,9 @@ import java.util.List;
 public class MyAdapter extends BaseAdapter {
     private List<Designers.ProfessionalsBean> data;
     private Context context;
-    public MyAdapter(List<Designers.ProfessionalsBean> data,Context context) {
+    public MyAdapter(List<com.example.guju.bean.Designers.ProfessionalsBean> data, Context context) {
 
-     this.context=context;
+        this.context=context;
         this.data = data;
 
     }
