@@ -2,6 +2,7 @@ package com.example.guju.adapter;
 
 import android.content.Context;
 import android.net.Uri;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -22,7 +23,7 @@ import java.util.List;
 public class MyAdapter extends BaseAdapter {
     private List<Designers.ProfessionalsBean> data;
     private Context context;
-    public MyAdapter(List<com.example.guju.bean.Designers.ProfessionalsBean> data, Context context) {
+    public MyAdapter(List<Designers.ProfessionalsBean> data, Context context) {
 
         this.context=context;
         this.data = data;
@@ -31,17 +32,17 @@ public class MyAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 1;
+        return data.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return data.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
 
     @Override
@@ -49,41 +50,46 @@ public class MyAdapter extends BaseAdapter {
       ViewHolder vh=null;
         if(view==null){
             vh=new ViewHolder();
-            view=View.inflate(context, R.layout.guide4_item,null);
+            view= LayoutInflater.from(context).inflate(R.layout.guide4_item,null);
             vh.iv_id= (ImageView) view.findViewById(R.id.iv_id);
-            vh.Work_address_id= (TextView) view.findViewById(R.id.Work_address_id);
+            vh.UserName_id= (TextView) view.findViewById(R.id.UserName_id);
             vh.sex_id= (TextView) view.findViewById(R.id.sex_id);
-            vh.address_id= (TextView) view.findViewById(R.id.address_id);
-            vh.et_eg_id= (TextView) view.findViewById(R.id.et_eg_id);
-            vh.et_share_id= (TextView) view.findViewById(R.id.et_share_id);
-            vh.et_work_id= (TextView) view.findViewById(R.id.et_work_id);
+            vh.provice_id= (TextView) view.findViewById(R.id.provice_id);
+            vh.projectNum_id= (TextView) view.findViewById(R.id.projectNum_id);
+            vh.PhotoNum_id= (TextView) view.findViewById(R.id.PhotoNum_id);
+            vh.producrLikeNum_id= (TextView) view.findViewById(R.id.producrLikeNum_id);
             view.setTag(vh);
 
         }else{
             vh= (ViewHolder) view.getTag();
-
         }
-      Uri url= (Uri.parse(data.get(i).getUserImage().getSmall()));
+        Uri url= (Uri.parse(data.get(i).getUserImage().getSmall()));
         Glide.with(context).load(url).into(vh.iv_id);
-        vh.et_work_id.setText(data.get(i).getProductLikeNum());
-        vh.address_id.setText(data.get(i).getProvince());
-        vh.et_eg_id.setText(data.get(i).getProjectNum());
-        vh.et_share_id.setText(data.get(i).getPhotoNum());
-        vh.sex_id.setText(data.get(i).getSex());
-        vh.Work_address_id.setText(data.get(i).getUserName());
+        vh.UserName_id.setText((CharSequence) data.get(i).getUserName());
+        vh.PhotoNum_id.setText(data.get(i).getPhotoNum()+"");
+        vh.producrLikeNum_id.setText(data.get(i).getProductLikeNum()+"");
+        vh.projectNum_id.setText(data.get(i).getProjectNum()+"");
+        vh.sex_id.setText(data.get(i).getSex()+"");
+        vh.provice_id.setText((CharSequence) data.get(i).getProvince());
         return view;
     }
-    public class ViewHolder{
 
 
-        private ImageView iv_id;
-        private TextView Work_address_id;
-        private TextView sex_id;
-        private TextView address_id;
-        private TextView et_eg_id;
-        private TextView et_work_id;
-        private TextView et_share_id;
+    public void addAll(List<Designers.ProfessionalsBean> dd){
+        data.addAll(dd);
+        notifyDataSetChanged();
     }
+
+    public class ViewHolder{
+        private ImageView iv_id;
+        private TextView UserName_id ;
+        private TextView provice_id;
+        private TextView sex_id;
+        private TextView projectNum_id;
+        private TextView PhotoNum_id;
+        private TextView producrLikeNum_id;
+    }
+
 
 
 
