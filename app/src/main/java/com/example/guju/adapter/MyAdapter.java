@@ -70,7 +70,12 @@ public class MyAdapter extends BaseAdapter {
 
         vh.producrLikeNum_id.setText(data.get(i).getProductLikeNum()+"");
         vh.projectNum_id.setText(data.get(i).getProjectNum()+"");
-        vh.sex_id.setText(data.get(i).getSex()+"");
+        if(data.get(i).getSex()==0){
+            vh.sex_id.setText("女");
+        }else{
+            vh.sex_id.setText("男");
+        }
+
         vh.provice_id.setText((CharSequence) data.get(i).getProvince());
         return view;
     }
