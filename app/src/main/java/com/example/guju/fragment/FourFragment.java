@@ -93,6 +93,14 @@ public class FourFragment extends  BaseFragment {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         Intent intent=new Intent(getActivity(), StrategyDetailActivity.class);
+                        Bundle bundle=new Bundle();
+                        bundle.putString("userName",data.get(i).getUserName());
+                        bundle.putString("userImage",data.get(i).getUserImage().getLarge());
+                        bundle.putString("projectNum",data.get(i).getProjectNum()+"");
+                        bundle.putString("strategyNum",data.get(i).getStrategyNum()+"");
+                        bundle.putString("ideabookNum",data.get(i).getIdeabookNum()+"");
+                        bundle.putString("photoNum",data.get(i).getPhotoNum()+"");
+                        intent.putExtras(bundle);
                           startActivity(intent);
                     }
                 });
