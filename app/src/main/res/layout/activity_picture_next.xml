@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+    android:background="#000000">
+ <android.support.v4.view.ViewPager
+     android:id="@+id/vp_id"
+     android:layout_width="match_parent"
+     android:layout_height="580dp">
+ </android.support.v4.view.ViewPager>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="480dp"
+        android:background="#40000000">
+        <ImageView
+            android:id="@+id/iv_title_photo_id"
+            android:layout_width="80dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_name_id"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:textColor="#ffffff"/>
+        <ImageView
+            android:id="@+id/iv_certified_id"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="30dp"/>
+        <ImageView
+            android:id="@+id/iv_guju_shop_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/guju_v2_building_state_right"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="130dp" />
+    </LinearLayout>
+
+   <ImageView
+       android:id="@+id/iv_start_btn_back_id"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/start_btn_back"/>
+    <ImageView
+        android:id="@+id/iv_start_share_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="330dp"
+        android:background="@drawable/start_btn_share" />
+
+        <ImageView
+            android:layout_below="@+id/vp_id"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/iv_love_hollow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/photo_library_heart_collect"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/vp_id"
+        android:text="1"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_toRightOf="@+id/iv_love_hollow"
+        android:id="@+id/tv_love_id" />
+      <ImageView
+        android:id="@+id/iv_raiders_btn_massage_id"
+        android:layout_below="@+id/vp_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/tv_love_id"
+        android:background="@drawable/photo_library_comment"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="center_horizontal"/>
+      <TextView
+          android:id="@+id/tv_raiders_btn_massage_id"
+         android:layout_below="@+id/vp_id"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_toRightOf="@+id/iv_raiders_btn_massage_id"
+         android:text="10"
+         android:layout_marginLeft="15dp"
+         android:textSize="30sp"
+         android:textColor="#ffffff"
+         android:layout_gravity="center_horizontal" />
+        <ImageView
+            android:id="@+id/iv_umeng_xp_hl_indicator_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/umeng_xp_hl_indicator_bg"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignTop="@+id/iv_love_hollow"
+            android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:id="@+id/tv_design_id"
+        android:text="免费设计"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_toRightOf="@+id/iv_umeng_xp_hl_indicator_bg"
+        android:layout_alignTop="@+id/iv_umeng_xp_hl_indicator_bg" />
+
+</RelativeLayout>
