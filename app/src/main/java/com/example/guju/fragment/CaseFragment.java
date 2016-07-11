@@ -22,6 +22,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import java.util.ArrayList;
 
+
 public class CaseFragment extends Fragment {
     private PullToRefreshListView listView;
     private CaseAdapter adapter;
