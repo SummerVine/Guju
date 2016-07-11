@@ -3,7 +3,6 @@ package com.example.guju.url;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-
 public class Urlan {
     public  static String freeDesinPath="http://guju.com.cn/freeDesignNew?src=app_home_freeDes";
     public  static  String url4(String city,int page){
