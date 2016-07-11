@@ -1,15 +1,26 @@
 package com.example.guju.adapter;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 public abstract class MyBaseAdapter<T> extends BaseAdapter{
-    private List<T>  data=new ArrayList<>();
+    private List<T>  data;
+    private LayoutInflater inflater;
+
+    public MyBaseAdapter(List<T> data, Context context) {
+        this.data = data;
+        inflater = LayoutInflater.from(context);
+    }
+
+    public LayoutInflater getInflater() {
+        return inflater;
+    }
 
     public void addAll(List<T> list){
         data.addAll(list);
@@ -29,7 +40,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter{
     }
 
     @Override
-    public Object getItem(int i) {
+    public T getItem(int i) {
         return data.get(i);
     }
 

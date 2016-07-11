@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.guju.R;
 import com.example.guju.bean.Designers;
+import com.example.guju.ui.GlideCircleTransform;
 
 import java.util.List;
 
@@ -64,7 +65,8 @@ public class MyAdapter extends BaseAdapter {
             vh= (ViewHolder) view.getTag();
         }
         Uri url= (Uri.parse(data.get(i).getUserImage().getLarge()));
-        Glide.with(context).load(url).into(vh.iv_id);
+        Glide.with(context).load(url) .transform(new GlideCircleTransform(context))
+                .crossFade().into(vh.iv_id);
         vh.UserName_id.setText((CharSequence) data.get(i).getUserName());
         vh.PhotoNum_id.setText(data.get(i).getPhotoNum()+"");
 

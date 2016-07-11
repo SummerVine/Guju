@@ -37,4 +37,5 @@ dependencies {
     compile 'com.github.userswlwork:pull-to-refresh:1.0.0'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
     compile 'com.android.support:design:24.0.0'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 }
