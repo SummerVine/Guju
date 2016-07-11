@@ -29,18 +29,13 @@ import java.util.List;
  * Created by Administrator on 2016/7/5.
  */
 public class FourFragment extends  BaseFragment {
-
     private View view;
     private PullToRefreshListView pull_refresh_list;
     private MyAdapter  adapter;
-   private List<Designers.ProfessionalsBean> data;
+    private List<Designers.ProfessionalsBean> data;
     private Button citySelect;
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        initView();
-
       view=  inflater.inflate(R.layout.activity_guide4,null);
         citySelect = ((Button) view.findViewById(R.id.city_button_id));
         citySelect.setOnClickListener(new View.OnClickListener() {
@@ -50,57 +45,66 @@ public class FourFragment extends  BaseFragment {
                 startActivityForResult(intent,100);
             }
         });
-
         pull_refresh_list= (PullToRefreshListView) view.findViewById(R.id.pull_refresh_list);
-
         data=new LinkedList<>();
-        initData(data);
+        initData();
        adapter=new MyAdapter(data,getActivity().getApplicationContext());
+        pull_refresh_list.setMode(PullToRefreshBase.Mode.BOTH);
         pull_refresh_list.setAdapter(adapter);
-          pull_refresh_list.setMode(PullToRefreshBase.Mode.BOTH);
+
         pull_refresh_list.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
             public void onPullDownToRefresh(
                     PullToRefreshBase<ListView> refreshView) {
+                initData();
+
 
             }
-
             @Override
             public void onPullUpToRefresh(
                     PullToRefreshBase<ListView> refreshView) {
+                initData();
 
             }
         });
+        ListenerAction();
         return view;
     }
+    private void ListenerAction() {
+        pull_refresh_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent(getActivity(), StrategyDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode==100&&resultCode==200){
             citySelect.setText(data.getStringExtra("city"));
         }
     }
-    private void initView() {
 
-    }
 
-    private void initData(final List<Designers.ProfessionalsBean> data) {
+    private void initData() {
         StringRequest request=new StringRequest(commont.url4, new Response.Listener<String>(){
-
-
             @Override
             public void onResponse(String response) {
                 Gson gson=new Gson();
                 Designers designers=gson.fromJson(response,Designers.class);
-               data.addAll(designers.getProfessionals());
-                pull_refresh_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent intent=new Intent(getActivity(), StrategyDetailActivity.class);
-                          startActivity(intent);
-                    }
-                });
+               adapter.addAll(designers.getProfessionals());
+
             }
         },null);
+        request.setTag("xx");
         MyApp.getApp().getRequestQueue().add(request);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        MyApp.getApp().getRequestQueue().cancelAll("xx");
     }
 }

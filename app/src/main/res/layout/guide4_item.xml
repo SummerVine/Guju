@@ -4,14 +4,14 @@
     android:layout_height="match_parent">
     <ImageView
         android:id="@+id/iv_id"
-        android:layout_width="100dp"
-        android:layout_height="120dp"
-        android:src="@mipmap/ic_launcher"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        android:src="@mipmap/guju_login_head_icon"
         android:layout_alignParentLeft="true"
         />
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="400dp"
+        android:layout_width="450dp"
         android:layout_height="120dp"
         android:layout_toRightOf="@+id/iv_id"
         >
@@ -20,17 +20,16 @@
             android:layout_height="40dp"
             >
             <TextView
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:id="@+id/UserName_id"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="30dp"
                 android:text="地址"
                 />
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:src="@mipmap/ordinary_designer_icon"
-
                 />
         </LinearLayout>
         <LinearLayout
