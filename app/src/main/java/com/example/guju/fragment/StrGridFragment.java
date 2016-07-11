@@ -69,6 +69,7 @@ public class StrGridFragment extends Fragment {
             }
         });
     }
+
     private void loadData() {
         request = new StringRequest(Urlan.getStrGrid(name), new Response.Listener<String>() {
             @Override
