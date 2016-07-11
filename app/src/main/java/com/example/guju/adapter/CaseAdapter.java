@@ -43,6 +43,7 @@ private Context context;
           Glide.with(context).load(getItem(i).getUser().getUserImage().getSmall()).transform(new GlideCircleTransform(context)).crossFade().into(vh.imgSmall);//圆形。。。。。。。。。。。。。。。。。。。。。。。。。。
         return view;
     }
+
     class ViewHolder {
         private ImageView imgLarge;
         private ImageView imgSmall;
