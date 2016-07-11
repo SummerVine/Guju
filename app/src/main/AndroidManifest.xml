@@ -73,7 +73,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <activity android:name=".ui.FreedesignActivity"/>
-        <activity android:name=".ui.StrategyDetailActivity"/>
+        <activity android:name=".ui.StrategyDetailActivity"></activity>
+        <activity android:name=".ui.StrategyActivity"></activity>
         <activity android:name=".ui.CityActivity"/>
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
         </service>

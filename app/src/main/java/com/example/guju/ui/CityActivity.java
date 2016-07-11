@@ -12,13 +12,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.guju.MyApp;
-import com.example.guju.bean.SortModel;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.example.guju.R;
 import com.example.guju.adapter.SortAdapter;
-import com.example.guju.fragment.FourFragment;
+import com.example.guju.bean.SortModel;
 import com.example.guju.utils.CharacterParser;
 import com.example.guju.utils.PinyinComparator;
 import com.example.guju.view.SideBarView;
@@ -26,12 +27,6 @@ import com.example.guju.view.SideBarView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.location.BDNotifyListener;//假如用到位置提醒功能，需要import该类
-import com.baidu.location.Poi;
 public class CityActivity extends Activity {
 
 

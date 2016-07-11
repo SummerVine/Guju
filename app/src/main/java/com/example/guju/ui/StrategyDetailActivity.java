@@ -1,17 +1,9 @@
 package com.example.guju.ui;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 
-import com.example.guju.R;
-
-public class StrategyDetailActivity  extends Activity {
+import android.support.v7.app.AppCompatActivity;
 
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.strategyactivity_main);
-    }
+public class StrategyDetailActivity  extends AppCompatActivity {
+
 }

@@ -19,6 +19,7 @@
 <Button
 
     android:text="北京"
+    android:background="@null"
     android:id="@+id/city_button_id"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"

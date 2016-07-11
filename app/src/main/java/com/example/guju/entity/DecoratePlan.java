@@ -4,59 +4,100 @@ package com.example.guju.entity;
  * Created by liushuxin on 2016/7/5.
  */
 public class DecoratePlan {
-    private  String planName;
-    private  String planImgUrl;
-    private String planAuthor;
-    private  String planDetail;
-    private String planAuthorIcon;
+    private  String buildingId;// 4183
+    private  String buildingName;// "远洋香奈"
+    private  String title;//"亲子设计，超强清新收纳！"
+    private  String styleShow;// "简约"
+    private  String typeShow;// "公寓"
+    private  String areaShow;//80平米
+    private  String costShow;//"13.5"
+    private  String coverPhoto;//1444528
+    private  String roomStylePhotoId;// 1448843
+
+    public DecoratePlan(  String buildingId,String roomStylePhotoId, String coverPhoto, String costShow, String typeShow, String styleShow, String title, String buildingName, String areaShow) {
+       this.buildingId=buildingId;
+        this.roomStylePhotoId = roomStylePhotoId;
+        this.coverPhoto = coverPhoto;
+        this.costShow = costShow;
+        this.typeShow = typeShow;
+        this.styleShow = styleShow;
+        this.title = title;
+        this.buildingName = buildingName;
+        this.areaShow = areaShow;
+    }
+
     public DecoratePlan(){
     }
-    public DecoratePlan(String planName,String planImgUrl,String planAuthor,String planDetail,String planAuthorIcon){
-        this.planName=planName;
-        this.planAuthor=planAuthor;
-        this.planDetail=planDetail;
-        this.planImgUrl=planImgUrl;
-       this.planAuthorIcon=planAuthorIcon;
+
+    public String getBuildingId() {
+        return buildingId;
     }
 
-    public String getPlanName(){
-    return planName;
-}
-    public  void setPlanName(String planName)
-    {
-        this.planName=planName;
+    public void setBuildingId(String buildingId) {
+        this.buildingId = buildingId;
     }
 
-    public String getPlanImgUrl(){
-        return planImgUrl;
-    }
-    public  void setPlanImgUrl(String planImgUrl)
-    {
-        this.planImgUrl=planImgUrl;
+    public String getAreaShow() {
+        return areaShow;
     }
 
-    public String getPlanAuthor(){
-        return planAuthor;
-    }
-    public  void setPlanAuthor(String planAuthor)
-    {
-        this.planAuthor=planAuthor;
+    public void setAreaShow(String areaShow) {
+        this.areaShow = areaShow;
     }
 
-    public String getPlanAuthorIcon(){
-        return planAuthorIcon;
-    }
-    public  void setPlanAuthorIcon(String planAuthorIcon)
-    {
-        this.planAuthorIcon=planAuthorIcon;
+    public String getBuildingName() {
+        return buildingName;
     }
 
-    public String getPlanDetail(){
-        return planDetail;
-    }
-    public  void setPanDetail(String planDetail)
-    {
-        this.planDetail=planDetail;
+    public void setBuildingName(String buildingName) {
+        this.buildingName = buildingName;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getStyleShow() {
+        return styleShow;
+    }
+
+    public void setStyleShow(String styleShow) {
+        this.styleShow = styleShow;
+    }
+
+    public String getTypeShow() {
+        return typeShow;
+    }
+
+    public void setTypeShow(String typeShow) {
+        this.typeShow = typeShow;
+    }
+
+    public String getCostShow() {
+        return costShow;
+    }
+
+    public void setCostShow(String costShow) {
+        this.costShow = costShow;
+    }
+
+    public String getCoverPhoto() {
+        return coverPhoto;
+    }
+
+    public void setCoverPhoto(String coverPhoto) {
+        this.coverPhoto = coverPhoto;
+    }
+
+    public String getRoomStylePhotoId() {
+        return roomStylePhotoId;
+    }
+
+    public void setRoomStylePhotoId(String roomStylePhotoId) {
+        this.roomStylePhotoId = roomStylePhotoId;
+    }
 }
