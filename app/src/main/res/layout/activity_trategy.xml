@@ -76,6 +76,4 @@
     <include layout="@layout/content_stategy" />
 
 
-
-
 </android.support.design.widget.CoordinatorLayout>
