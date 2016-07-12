@@ -1,7 +1,6 @@
 package com.example.guju.fragment;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,7 +28,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.guju.R;
 import com.example.guju.adapter.StrategyAdapter;
 import com.example.guju.adapter.StrategyViewPagerAdapter;
-import com.example.guju.ui.DecorateRvDetailsActivity;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -167,12 +165,6 @@ public class  StrategyFragment extends BaseFragment{
         //关于小圆点的操作
         aboutLitterDots();
         view.setLayoutParams(new DrawerLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.startActivity(new Intent(activity, DecorateRvDetailsActivity.class));
-            }
-        });
         return view;
        /* View view = activity.getLayoutInflater().inflate(R.layout.headview, null);
        // view.findViewById(R.id.dh_tv_id);
@@ -229,7 +221,7 @@ private final class MyOnClickListener implements View.OnClickListener{
         rvdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                activity.startActivity(new Intent(activity, DecorateRvDetailsActivity.class));
+                //activity.startActivity(new Intent(activity, DecorateRvDetailsActivity.class));
             }
         });
     }
