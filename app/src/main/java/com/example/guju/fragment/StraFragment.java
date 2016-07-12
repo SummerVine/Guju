@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -45,10 +46,11 @@ public class StraFragment extends Fragment {
        listView.setAdapter(adapter);
         loadData();
         aboutRefresh();
-        listView.setOnClickListener(new View.OnClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent=new Intent(getActivity(), StrategyActivity.class);
+                intent.putExtra("str","http://m.guju.com.cn/release/views/gonglue/?id=4133");
                 startActivity(intent);
             }
         });
