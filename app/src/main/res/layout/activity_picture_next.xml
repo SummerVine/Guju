@@ -58,16 +58,13 @@
             android:layout_alignParentBottom="true"
             android:id="@+id/iv_love_hollow"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/photo_library_heart_collect"
-            android:layout_marginLeft="5dp"/>
-
-        <TextView
+            android:layout_height="30dp"
+            android:background="@drawable/photo_library_heart_collect" />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_below="@+id/vp_id"
-        android:text="1"
         android:textSize="30sp"
         android:textColor="#ffffff"
         android:layout_alignParentBottom="true"
@@ -78,11 +75,11 @@
         android:id="@+id/iv_raiders_btn_massage_id"
         android:layout_below="@+id/vp_id"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/tv_love_id"
+          android:layout_marginLeft="8dp"
         android:background="@drawable/photo_library_comment"
-        android:layout_marginLeft="15dp"
         android:layout_gravity="center_horizontal"/>
       <TextView
           android:id="@+id/tv_raiders_btn_massage_id"
@@ -91,8 +88,7 @@
          android:layout_height="wrap_content"
          android:layout_alignParentBottom="true"
          android:layout_toRightOf="@+id/iv_raiders_btn_massage_id"
-         android:text="10"
-         android:layout_marginLeft="15dp"
+         android:layout_marginLeft="10dp"
          android:textSize="30sp"
          android:textColor="#ffffff"
          android:layout_gravity="center_horizontal" />
@@ -103,6 +99,7 @@
             android:layout_alignParentBottom="true"
             android:background="@drawable/umeng_xp_hl_indicator_bg"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
             android:layout_alignTop="@+id/iv_love_hollow"
             android:layout_centerHorizontal="true" />
     <TextView

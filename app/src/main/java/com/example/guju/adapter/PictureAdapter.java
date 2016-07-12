@@ -6,15 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.guju.R;
 import com.example.guju.bean.PictureFactory;
 
-
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +19,6 @@ import java.util.List;
 public class PictureAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<PictureFactory.PhotosBean> data;
     private Context context;
-    private List<Integer> heights;
     private OnItemClickListener onItemClickListener;
     //传值
     public PictureAdapter(List<PictureFactory.PhotosBean> data, Context context) {
@@ -59,16 +54,16 @@ public class PictureAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 }
             });
             //添加长按监听
-            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    //得到当前点击item的位置pos
-                    int pos = holder.getLayoutPosition();
-                    //把事件交给我们实现的接口那里处理
-                    onItemClickListener.ItemLongClickListener(pos,holder.itemView);
-                    return true;
-                }
-            });
+//            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+//                @Override
+//                public boolean onLongClick(View v) {
+//                    //得到当前点击item的位置pos
+//                    int pos = holder.getLayoutPosition();
+//                    //把事件交给我们实现的接口那里处理
+//                    onItemClickListener.ItemLongClickListener(pos,holder.itemView);
+//                    return true;
+//                }
+//            });
         }
     }
 
@@ -108,7 +103,7 @@ public class PictureAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     //设置监听事件接口
     public interface  OnItemClickListener{
          void onItemClick(int position, View itemView);
-         void ItemLongClickListener(int postion,View itemview);
+//         void ItemLongClickListener(int postion,View itemview);
     }
 
 
