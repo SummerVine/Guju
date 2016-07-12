@@ -16,7 +16,6 @@ import java.util.List;
  * Created by liushuxin on 2016/7/5.
  */
 public class DecoratePlanRvAdapter extends BaseQuickAdapter<DecoratePlan> {
-    private List<DecoratePlan> datas;
 
     public DecoratePlanRvAdapter(List<DecoratePlan> data) {
         super(R.layout.decorate_rvitem_activity, data);
