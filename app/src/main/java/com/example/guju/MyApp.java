@@ -22,7 +22,6 @@ public class MyApp extends Application {
     private static MyApp app;
     private DbUtils dbUtils;
     private RequestQueue requestqueue;
-    private DbUtils dbUtils;
     public static MyApp getApp() {
         return app;
     }
