@@ -63,10 +63,6 @@ public class GuideActivity extends Activity {
         }
 
     }
-
-
-
-
     public void aboutViewPager() {
         viewPager = (ViewPager) findViewById(R.id.viewpager_id);
 

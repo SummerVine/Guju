@@ -22,6 +22,15 @@ import android.os.Handler.Callback;
 import android.os.Message;
 import android.text.TextUtils;
 import android.widget.Toast;
+
+import com.mob.tools.utils.R;
+import com.mob.tools.utils.UIHandler;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import cn.sharesdk.framework.CustomPlatform;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.Platform.ShareParams;
@@ -123,10 +132,17 @@ public abstract class OnekeyShareThemeImpl implements PlatformActionListener, Ca
 			}
 		} else if ("SinaWeibo".equals(name)) {
 			if ("true".equals(platform.getDevinfo("ShareByAppClient"))) {
+
 				Intent test = new Intent(Intent.ACTION_SEND);
 				test.setPackage("com.sina.weibo");
 				test.setType("image/*");
 				ResolveInfo ri = platform.getContext().getPackageManager().resolveActivity(test, 0);
+				if(ri == null) {
+					test = new Intent(Intent.ACTION_SEND);
+					test.setPackage("com.sina.weibog3");
+					test.setType("image/*");
+					ri = platform.getContext().getPackageManager().resolveActivity(test, 0);
+				}
 				return (ri != null);
 			}
 		}
