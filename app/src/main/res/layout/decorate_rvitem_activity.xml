@@ -2,12 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="230dp"
+    android:layout_height="225dp"
     >
     <ImageView
-        android:id="@+id/decorate_iv_id"
+        android:id="@+id/decorate_coveriv_id"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="165dp"
         android:scaleType="fitXY"
         android:src="@drawable/decorate_loading_image"/>
 <android.support.v7.widget.CardView
@@ -29,36 +29,40 @@
         android:id="@+id/decorate_bulidname_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="装饰主题"
+        android:text="小屋名字"
         android:gravity="center"
         android:textColor="#ffffff"
         android:background="#00666633"
-        android:textSize="18dp"/>
+        android:textSize="15dp"/>
 
 </android.support.v7.widget.CardView>
 
 <TextView
-    android:id="@+id/Decorate_title_id"
+    android:id="@+id/Decorate_tv_title_id"
     android:layout_width="match_parent"
     android:layout_height="30dp"
-    android:textSize="18dp"
-    android:layout_below="@+id/decorate_iv_id"
-    android:text="我是RecyclerView中的一部分哦"/>
+    android:textSize="15dp"
+    android:gravity="left"
+    android:layout_marginTop="5dp"
+    android:layout_below="@+id/decorate_coveriv_id"
+    android:textColor="#000000"
+    android:text="小屋主题！！！！！"/>
     <TextView
         android:id="@+id/Decorate_details_id"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:textSize="10dp"
-        android:layout_below="@+id/Decorate_title_id"
-        android:text="我是RecyclerView中的一部分哦"/>
+        android:textSize="13dp"
+        android:layout_marginTop="148dp"
+        android:layout_below="@+id/decorate_cv_id"
+        android:text="小屋详情！！！！！！"/>
     <ImageView
         android:id="@+id/decorate_author_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
         android:src="@drawable/decorate_title_text"
+        android:scaleType="fitXY"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="160dp"
-        />
-
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="6dp"
+        android:layout_alignBottom="@+id/Decorate_tv_title_id" />
 </RelativeLayout>

@@ -1,13 +1,12 @@
 package com.example.guju.adapter;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
-import com.example.guju.R;
 
 /**
  * Created by liushuxin on 2016/7/7.
@@ -47,25 +46,26 @@ public class DecorateGridViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-     final  TextView tv;
+     final  TextView gv_itm_btn;
                    if(view == null){
-                          tv = new TextView(activity);
+                       gv_itm_btn = new TextView(activity);
                         }
                    else {
-                            tv = (TextView)view;
+                       gv_itm_btn = (TextView) view;
                         }
 
-                    tv.setSingleLine(true);
+                 gv_itm_btn.setSingleLine(true);
         if (clickTemp == i) {
-
-            tv.setBackgroundResource(R.drawable.abc_menu_hardkey_panel_holo_dark);
+            gv_itm_btn.setTextColor(Color.BLUE);
         } else {
 
-            tv.setBackgroundResource(R.drawable.abc_menu_hardkey_panel_holo_light);
+            //gv_itm_btn.setBackgroundResource(R.drawable.abc_menu_hardkey_panel_holo_light);
         }
-                    tv.setGravity(Gravity.CENTER);
-                    tv.setText(datas[i]);
-                    return tv;
+        gv_itm_btn.setGravity(Gravity.CENTER);
+        gv_itm_btn.setText(datas[i]);
+                    return gv_itm_btn;
 
     }
+
+
 }

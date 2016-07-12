@@ -11,10 +11,29 @@ public class DecoratePlan {
     private  String typeShow;// "公寓"
     private  String areaShow;//80平米
     private  String costShow;//"13.5"
-    private  String coverPhoto;//1444528
+    private  int coverPhoto;//1444528
     private  String roomStylePhotoId;// 1448843
+    private String Details;
 
-    public DecoratePlan(  String buildingId,String roomStylePhotoId, String coverPhoto, String costShow, String typeShow, String styleShow, String title, String buildingName, String areaShow) {
+    public String getUserSmallImage() {
+        return userSmallImage;
+    }
+
+    public void setUserSmallImage(String userSmallImage) {
+        this.userSmallImage = userSmallImage;
+    }
+
+    private String userSmallImage;
+
+    public String getDetails() {
+        return Details;
+    }
+
+    public void setDetails(String details) {
+        Details = details;
+    }
+
+    public DecoratePlan(String buildingId, String roomStylePhotoId, int coverPhoto, String costShow, String typeShow, String styleShow, String title, String buildingName, String areaShow) {
        this.buildingId=buildingId;
         this.roomStylePhotoId = roomStylePhotoId;
         this.coverPhoto = coverPhoto;
@@ -85,11 +104,11 @@ public class DecoratePlan {
         this.costShow = costShow;
     }
 
-    public String getCoverPhoto() {
+    public int getCoverPhoto() {
         return coverPhoto;
     }
 
-    public void setCoverPhoto(String coverPhoto) {
+    public void setCoverPhoto(int coverPhoto) {
         this.coverPhoto = coverPhoto;
     }
 
@@ -99,5 +118,20 @@ public class DecoratePlan {
 
     public void setRoomStylePhotoId(String roomStylePhotoId) {
         this.roomStylePhotoId = roomStylePhotoId;
+    }
+
+    @Override
+    public String toString() {
+        return "DecoratePlan{" +
+                "buildingId='" + buildingId + '\'' +
+                ", buildingName='" + buildingName + '\'' +
+                ", title='" + title + '\'' +
+                ", styleShow='" + styleShow + '\'' +
+                ", typeShow='" + typeShow + '\'' +
+                ", areaShow='" + areaShow + '\'' +
+                ", costShow='" + costShow + '\'' +
+                ", coverPhoto='" + coverPhoto + '\'' +
+                ", roomStylePhotoId='" + roomStylePhotoId + '\'' +
+                '}';
     }
 }
