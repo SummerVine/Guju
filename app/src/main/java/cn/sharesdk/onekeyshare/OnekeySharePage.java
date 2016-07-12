@@ -17,6 +17,8 @@ import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.Platform.ShareParams;
 import cn.sharesdk.framework.PlatformActionListener;
 
+import com.mob.tools.FakeActivity;
+
 /** 快捷分享的基类 */
 public class OnekeySharePage extends FakeActivity {
 	private OnekeyShareThemeImpl impl;

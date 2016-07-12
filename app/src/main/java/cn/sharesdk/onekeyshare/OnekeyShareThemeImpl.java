@@ -8,6 +8,11 @@
 
 package cn.sharesdk.onekeyshare;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
@@ -31,6 +36,9 @@ import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.Platform.ShareParams;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
+
+import com.mob.tools.utils.R;
+import com.mob.tools.utils.UIHandler;
 
 /** 快捷分享的主题样式的实现父类 */
 public abstract class OnekeyShareThemeImpl implements PlatformActionListener, Callback {
@@ -175,6 +183,12 @@ public abstract class OnekeyShareThemeImpl implements PlatformActionListener, Ca
 
 	final boolean formateShareData(Platform plat) {
 		String name = plat.getName();
+
+		boolean isGooglePlus = "GooglePlus".equals(name);
+		if (isGooglePlus && !plat.isClientValid()) {
+			toast("ssdk_google_plus_client_inavailable");
+			return false;
+		}
 
 		boolean isAlipay = "Alipay".equals(name);
 		if (isAlipay && !plat.isClientValid()) {

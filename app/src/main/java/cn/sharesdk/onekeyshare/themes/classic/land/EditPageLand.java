@@ -31,6 +31,12 @@ import com.mob.tools.gui.AsyncImageView;
 import com.mob.tools.utils.BitmapHelper;
 import com.mob.tools.utils.R;
 
+import java.io.File;
+
+import cn.sharesdk.onekeyshare.OnekeyShareThemeImpl;
+import cn.sharesdk.onekeyshare.themes.classic.EditPage;
+import cn.sharesdk.onekeyshare.themes.classic.XView;
+
 /** 横屏的编辑页 */
 public class EditPageLand extends EditPage implements OnClickListener, TextWatcher, Runnable {
 	private static final int DESIGN_SCREEN_WIDTH= 720;
