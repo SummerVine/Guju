@@ -4,8 +4,6 @@ package com.example.guju.fragment;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,10 +30,9 @@ import com.example.guju.utils.GetDetailDataCallBack;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.LogRecord;
+
 
 
 public class  StrategyFragment extends BaseFragment  {
@@ -53,8 +50,9 @@ public class  StrategyFragment extends BaseFragment  {
     List<StrategyEntity.StrategyListBean> ds;
     private MyStrategyAdapter strategyadapter;
     private GridView lv_dialog_id;
-    private String path=commont.strategyUrl[3];
+    private String path=commont.strategyUrl[0];
     private  String webPath;
+    private int page=0;
 
 
 
@@ -95,7 +93,6 @@ public class  StrategyFragment extends BaseFragment  {
             }
         });
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_zhuangxiu, null);
@@ -106,12 +103,9 @@ public class  StrategyFragment extends BaseFragment  {
         iv_qian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 showPopupWindow(iv_qian, title1);
             }
         });
-       // vi = View.inflate(getActivity(),R.layout.zhuangxiu_popup_qian_item, null);
-       // lv_dialog_id = (GridView) vi.findViewById(R.id.lv_dialog_id);
         iv_zhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +115,6 @@ public class  StrategyFragment extends BaseFragment  {
         iv_hou.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 showPopupWindow(iv_hou, title3);
             }
         });
@@ -143,18 +136,11 @@ public class  StrategyFragment extends BaseFragment  {
             return view;
         }
     private void fuyong() {
-       // GetDetailDataCallBack callback=new GetDetailDataCallBack(getActivity());
-        //strategyadapter = new MyStrategyAdapter(ds, getActivity().getApplicationContext());
         strategyadapter=new MyStrategyAdapter(ds, getActivity() , new GetDetailDataCallBack() {
                     @Override
                     public void getAllData(String interPath) {
                         webPath = interPath;
-                /*Message message = StrategyActivity.handler.obtainMessage();
-                message.obj = webPath;
-                // message.what=webPath;
-                StrategyActivity.handler.sendMessage(message);
-*/
-            }
+    }
         });
         ptrl_id.setAdapter(strategyadapter);
         ptrl_id.setMode(PullToRefreshBase.Mode.BOTH);
@@ -162,27 +148,15 @@ public class  StrategyFragment extends BaseFragment  {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
 
-            }
 
+            }
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
 
             }
         });
-        //strategyadapter.notifyDataSetChanged();
     }
-   /* public static Handler handler=new Handler(){
-        public void handleMessage(Message msg){
-            super.handleMessage(msg);
-            data=new ArrayList<>();
-            data=(List<Edithor>)msg.obj;
-            p=msg.what;
-            Log.i("info", "------" + data.size());
-        }
-    };*/
-
     private void initData(final List<StrategyEntity.StrategyListBean> ds) {
-
         StringRequest request = new StringRequest(path, new Response.Listener<String>() {
 
 
@@ -196,20 +170,6 @@ public class  StrategyFragment extends BaseFragment  {
         }, null);
         MyApp.getApp().getRequestQueue().add(request);
     }
-
-   /* @Override
-    public void getAllData(String interPath) {
-        String webPath=interPath;
-        Message message=StrategyActivity.handler.obtainMessage();
-        message.obj=webPath;
-        // message.what=webPath;
-        StrategyActivity.handler.sendMessage(message);
-    }*/
-  /*  @Override
-    public void getAllData(String interPath) {
-
-    webPath=interPath;
-    }*/
 }
 
 
