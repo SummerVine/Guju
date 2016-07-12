@@ -78,7 +78,7 @@
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/tv_love_id"
-          android:layout_marginLeft="8dp"
+        android:layout_marginLeft="18dp"
         android:background="@drawable/photo_library_comment"
         android:layout_gravity="center_horizontal"/>
       <TextView

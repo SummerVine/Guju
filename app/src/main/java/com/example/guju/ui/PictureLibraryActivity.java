@@ -82,6 +82,7 @@ public class PictureLibraryActivity extends Activity {
     private ImageView iv_guju_shop_right;
     private TextView tv_love_id;
     private ImageView iv_love_hollow;
+    private ImageView iv_raiders_btn_massage_id;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,12 +100,7 @@ public class PictureLibraryActivity extends Activity {
         vp_id.setCurrentItem(position);
         //添加控件点击事件
         AddClickEvent();
-        iv_love_hollow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
     }
 
     private void SetNameAndPhoto() {
@@ -162,13 +158,7 @@ public class PictureLibraryActivity extends Activity {
                 onBackPressed();
             }
         });
-        //跳到免费设计
-        tv_design_id.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
         //跳到设计时详情界面
         iv_guju_shop_right.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -194,6 +184,22 @@ public class PictureLibraryActivity extends Activity {
                 intent.putExtra("link",Urlan.freeDesinPath);
                 startActivity(intent);
 
+            }
+        });
+
+        //跳到短信界面
+        iv_raiders_btn_massage_id.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent();
+            }
+        });
+        //跳到登陆界面
+        iv_love_hollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -224,6 +230,7 @@ public class PictureLibraryActivity extends Activity {
         vp_id = ((ViewPager) findViewById(R.id.vp_id));
         tv_love_id = ((TextView) findViewById(R.id.tv_love_id));
         iv_love_hollow = ((ImageView) findViewById(R.id.iv_love_hollow));
+        iv_raiders_btn_massage_id = ((ImageView) findViewById(R.id.iv_raiders_btn_massage_id));
 
 
     }
