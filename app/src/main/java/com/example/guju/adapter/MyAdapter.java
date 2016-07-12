@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.guju.R;
 import com.example.guju.bean.Designers;
+import com.example.guju.ui.GlideCircleTransform;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ import java.util.List;
 public class MyAdapter extends BaseAdapter {
     private List<Designers.ProfessionalsBean> data;
     private Context context;
+    private int flg;
     public MyAdapter(List<Designers.ProfessionalsBean> data, Context context) {
 
         this.context=context;
@@ -53,6 +55,7 @@ public class MyAdapter extends BaseAdapter {
             view= LayoutInflater.from(context).inflate(R.layout.guide4_item,null);
             vh.iv_id= (ImageView) view.findViewById(R.id.iv_id);
             vh.UserName_id= (TextView) view.findViewById(R.id.UserName_id);
+
             vh.sex_id= (TextView) view.findViewById(R.id.sex_id);
             vh.provice_id= (TextView) view.findViewById(R.id.provice_id);
             vh.projectNum_id= (TextView) view.findViewById(R.id.projectNum_id);
@@ -63,24 +66,26 @@ public class MyAdapter extends BaseAdapter {
         }else{
             vh= (ViewHolder) view.getTag();
         }
-        Uri url= (Uri.parse(data.get(i).getUserImage().getSmall()));
-        Glide.with(context).load(url).into(vh.iv_id);
+        Uri url= (Uri.parse(data.get(i).getUserImage().getLarge()));
+        Glide.with(context).load(url) .transform(new GlideCircleTransform(context))
+                .crossFade().into(vh.iv_id);
         vh.UserName_id.setText((CharSequence) data.get(i).getUserName());
         vh.PhotoNum_id.setText(data.get(i).getPhotoNum()+"");
-
         vh.producrLikeNum_id.setText(data.get(i).getProductLikeNum()+"");
         vh.projectNum_id.setText(data.get(i).getProjectNum()+"");
-        vh.sex_id.setText(data.get(i).getSex()+"");
+        flg=data.get(i).getSex();
+        if(flg==0){
+        vh.sex_id.setText("女");
+        }else {
+            vh.sex_id.setText("男");
+        }
         vh.provice_id.setText((CharSequence) data.get(i).getProvince());
         return view;
     }
-
-
     public void addAll(List<Designers.ProfessionalsBean> dd){
         data.addAll(dd);
         notifyDataSetChanged();
     }
-
     public class ViewHolder{
         private ImageView iv_id;
         private TextView UserName_id ;
