@@ -36,8 +36,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-               android:gravity="center"
+               android:gravity="center_horizontal"
                 >
+                <ImageView
+                    android:src="@drawable/start_btn_share"
+                    android:clickable="true"
+                    android:id="@+id/share_stategy_id"
+                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
                 <ImageView
                     android:layout_gravity="center"
                     android:id="@+id/headicon_stategy_id"
