@@ -1,6 +1,7 @@
 package com.example.guju.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import com.example.guju.MyApp;
 import com.example.guju.R;
 import com.example.guju.adapter.CaseAdapter;
 import com.example.guju.bean.Case;
+import com.example.guju.ui.StrategyActivity;
 import com.example.guju.url.Urlan;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -35,6 +37,7 @@ public class CaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_listview,null);
+
         listView = ((PullToRefreshListView) view.findViewById(R.id.list_sfragment_id));
         listView.setEmptyView((ImageView)view.findViewById(R.id.empty_id));
         Bundle bundle=getArguments();
@@ -43,13 +46,14 @@ public class CaseFragment extends Fragment {
         listView.setAdapter(adapter);
         loadData();
         aboutRefresh();
-        //listView.setAdapter(new CaseAdapter());
-//        listView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+
+        listView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(), StrategyActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
@@ -81,6 +85,7 @@ public class CaseFragment extends Fragment {
      * 记载数据
      */
     private void loadData() {
+
         request = new StringRequest(Urlan.getCase(name,page), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
