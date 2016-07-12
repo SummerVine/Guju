@@ -40,7 +40,7 @@ private Context context;
           vh.money.setText(getItem(i).getCostShow());
           Log.i("tag",getItem(i).getCoverPhoto()+"---------------");
           Glide.with(context).load("http://image.guju.com.cn/images/146/9/"+getItem(i).getCoverPhoto()+"_0_9-.jpg@1o").into(vh.imgLarge);
-          Glide.with(context).load(getItem(i).getUser().getUserImage().getSmall()).transform(new GlideCircleTransform(context)).crossFade().into(vh.imgSmall);//圆形。。。。。。。。。。。。。。。。。。。。。。。。。。
+          Glide.with(context).load(getItem(i).getUser().getUserImage().getLarge()).transform(new GlideCircleTransform(context)).crossFade().into(vh.imgSmall);//圆形。。。。。。。。。。。。。。。。。。。。。。。。。。
         return view;
     }
 
