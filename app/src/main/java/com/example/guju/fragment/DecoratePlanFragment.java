@@ -36,6 +36,7 @@ import com.example.guju.entity.AA;
 import com.example.guju.entity.DecoratePlan;
 import com.example.guju.ui.DecorateVP1DetailsActivity;
 import com.example.guju.ui.DecorateVP2Activity;
+import com.example.guju.ui.StrategyActivity;
 import com.example.guju.utils.DecorateServerinterface;
 import com.example.guju.utils.OkHttp3Utils;
 import com.google.gson.internal.LinkedTreeMap;
@@ -77,7 +78,6 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
     private int delayMillis = 1000;
     private int mCurrentCounter = 0;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-   // private int i = 0;
     private Map<String, Integer> map;
     private Map<String, Integer> map1;
     private ImageView decorete_iv_cost_id;
@@ -103,6 +103,11 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
     private int costSelected;
     private int typeSelected;
     private int styleSelected;
+    private TextView tv_area;
+    private TextView tv_cost;
+    private TextView tv_type;
+    private TextView tv_style;
+
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -124,11 +129,6 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
             }
         }
     };
-    private DecorateGridViewAdapter adapter;
-    private TextView tv_area;
-    private TextView tv_cost;
-    private TextView tv_type;
-    private TextView tv_style;
 
 
     @Override
@@ -179,9 +179,11 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
             @Override
             public void onClick(View view) {
                 if (areaPopup.isShowing()) {
+                    tv_area.setTextColor(Color.BLACK);
                     areaPopup.dismiss();
                     decorete_iv_area_id.setImageResource(R.drawable.guju_down);
                 } else if (!areaPopup.isShowing()) {
+                    tv_area.setTextColor(Color.rgb(135,206,235));
                     newPopupWindow();
                     areaPopup.showAsDropDown(tv_area, 0, 10);
                     decorete_iv_area_id.setImageResource(R.drawable.guju_up);
@@ -192,9 +194,11 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
             @Override
             public void onClick(View view) {
                 if (costPopup.isShowing()) {
+                    tv_cost.setTextColor(Color.BLACK);
                     costPopup.dismiss();
                     decorete_iv_cost_id.setImageResource(R.drawable.guju_down);
                 } else if (!costPopup.isShowing()) {
+                    tv_cost.setTextColor(Color.rgb(135,206,235));
                     newPopupWindow();
                     costPopup.showAsDropDown(tv_area, 0, 10);
                     decorete_iv_cost_id.setImageResource(R.drawable.guju_up);
@@ -205,9 +209,11 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
             @Override
             public void onClick(View view) {
                 if (typePopup.isShowing()) {
+                    tv_type.setTextColor(Color.BLACK);
                     decorete_iv_type_id.setImageResource(R.drawable.guju_down);
                     typePopup.dismiss();
                 } else if (!typePopup.isShowing()) {
+                    tv_type.setTextColor(Color.rgb(135,206,235));
                     newPopupWindow();
                     typePopup.showAsDropDown(tv_area, 0, 10);
                     decorete_iv_type_id.setImageResource(R.drawable.guju_up);
@@ -218,9 +224,11 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
             @Override
             public void onClick(View view) {
                 if ( stylePopup.isShowing()) {
+                    tv_style.setTextColor(Color.BLACK);
                     stylePopup.dismiss();
                     decorete_iv_style_id.setImageResource(R.drawable.guju_down);
                 } else if ( !stylePopup.isShowing()) {
+                    tv_style.setTextColor(Color.rgb(135,206,235));
                     newPopupWindow();
                     stylePopup.showAsDropDown(tv_area, 0, 10);
                     decorete_iv_style_id.setImageResource(R.drawable.guju_up);
@@ -266,15 +274,19 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
         typePopup = new PopupWindow(typePopupview, 1050, 750);
         stylePopup =new PopupWindow(stylePopupview, 1050, 750);
         //控制键盘是否可以获得焦点
-        areaPopup.setFocusable(true);
-        costPopup.setFocusable(true);
-        typePopup.setFocusable(true);
-        stylePopup.setFocusable(true);
+        areaPopup.setFocusable(false);
+        areaPopup.setOutsideTouchable(false);
+        costPopup.setFocusable(false);
+        costPopup.setOutsideTouchable(false);
+        typePopup.setFocusable(false);
+        typePopup.setOutsideTouchable(false);
+        stylePopup.setFocusable(false);
+        stylePopup.setOutsideTouchable(false);
         //设置popupWindow弹出窗体的背景
-        areaPopup.setBackgroundDrawable(new BitmapDrawable(null, ""));
-        costPopup.setBackgroundDrawable(new BitmapDrawable(null, ""));
-        typePopup.setBackgroundDrawable(new BitmapDrawable(null, ""));
-        stylePopup.setBackgroundDrawable(new BitmapDrawable(null, ""));
+        areaPopup.setBackgroundDrawable(new BitmapDrawable());
+        costPopup.setBackgroundDrawable(new BitmapDrawable());
+        typePopup.setBackgroundDrawable(new BitmapDrawable());
+        stylePopup.setBackgroundDrawable(new BitmapDrawable());
         //监听
         areagridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             // arg1是当前item的view，通过它可以获得该项中的各个组件。
@@ -289,9 +301,14 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
                     areagridView.setSelection(arg2);
                     areagridViewAdapter.notifyDataSetChanged();
                     areaPopup.dismiss();
-                    tv_area.setTextColor(Color.BLACK);
+                    //tv_area.setTextColor(Color.BLACK);
+                if (arg2==0){
+                tv_area.setText("面积");
+                }else{
                     tv_area.setText(DecorateDatasUtils.popArea[arg2]);
-                    decorete_iv_area_id.setImageResource(R.drawable.guju_down);
+                }
+                tv_area.setTextColor(Color.BLACK);
+                decorete_iv_area_id.setImageResource(R.drawable.guju_down);
                     areaSelected=arg2;
 
             }
@@ -309,8 +326,13 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
                 costgridView.setSelection(arg2);
                 costgridViewAdapter.notifyDataSetChanged();
                 costPopup.dismiss();
+                //tv_cost.setTextColor(Color.BLACK);
+                if (arg2==0){
+                    tv_cost.setText("预算");
+                }else {
+                    tv_cost.setText(DecorateDatasUtils.popCost[arg2]);
+                }
                 tv_cost.setTextColor(Color.BLACK);
-                tv_cost.setText(DecorateDatasUtils.popCost[arg2]);
                 decorete_iv_cost_id.setImageResource(R.drawable.guju_down);
                 costSelected=arg2;
             }
@@ -328,8 +350,13 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
                 typegridView.setSelection(arg2);
                 typegridViewAdapter.notifyDataSetChanged();
                 typePopup.dismiss();
+                //tv_type.setTextColor(Color.BLACK);
+                if (arg2==0){
+                    tv_type.setText("户型");
+                }else {
+                    tv_type.setText(DecorateDatasUtils.popType[arg2]);
+                }
                 tv_type.setTextColor(Color.BLACK);
-                tv_type.setText(DecorateDatasUtils.popType[arg2]);
                 decorete_iv_type_id.setImageResource(R.drawable.guju_down);
                 typeSelected=arg2;
             }
@@ -347,8 +374,14 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
                 stylegridView.setSelection(arg2);
                 stylegridViewAdapter.notifyDataSetChanged();
                 stylePopup.dismiss();
+                //tv_style.setTextColor(Color.BLACK);
+                if (arg2==0){
+                    tv_style.setText("风格");
+                }else{
+
+                    tv_style.setText(DecorateDatasUtils.popStyle[arg2]);
+                }
                 tv_style.setTextColor(Color.BLACK);
-                tv_style.setText(DecorateDatasUtils.popStyle[arg2]);
                 decorete_iv_style_id.setImageResource(R.drawable.guju_down);
                 styleSelected=arg2;
             }
@@ -462,7 +495,7 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
             @Override
             public void onItemClick(View view, int position) {
                 //TODO
-                //activity.startActivity(new Intent(activity, DecorateRvDetailsActivity.class));
+                activity.startActivity(new Intent(activity, StrategyActivity.class));
             }
         });
     }
@@ -606,7 +639,7 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
             }
             tvItem.setSingleLine(true);
             if (currentSelected == i) {
-                tvItem.setTextColor(Color.BLUE);
+                tvItem.setTextColor(Color.rgb(135,206,235));
             }
             tvItem.setGravity(Gravity.CENTER);
             tvItem.setText(adapterDatas[i]);
