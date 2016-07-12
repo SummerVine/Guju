@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.guju.MyApp;
 import com.example.guju.R;
 import com.example.guju.adapter.MyPagerAdapter;
 import com.example.guju.bean.Designers;
@@ -55,7 +56,7 @@ public class StrategyDetailActivity extends FragmentActivity {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               //?????????????????????????????????????????????
+                MyApp.getApp().showShare("分享","分享","分享");
 
             }
         });
