@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <FrameLayout
+        android:layout_marginBottom="5dp"
         android:id="@+id/base_fragment_id"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -21,7 +22,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
        <RadioButton
-           android:gravity="center_horizontal"
+           android:gravity="center"
            android:checked="true"
            android:id="@+id/home_id"
           android:text="装修案例"
@@ -32,7 +33,7 @@
            android:layout_width="0dp"
            android:layout_height="wrap_content" />
        <RadioButton
-           android:gravity="center_horizontal"
+           android:gravity="center"
            android:id="@+id/gallery_id"
            android:text="图库"
            android:button="@null"
@@ -42,7 +43,7 @@
            android:layout_width="0dp"
            android:layout_height="wrap_content" />
        <RadioButton
-           android:gravity="center_horizontal"
+           android:gravity="center"
            android:id="@+id/strategy_id"
            android:text="装修攻略"
            android:button="@null"
@@ -52,7 +53,7 @@
            android:layout_width="0dp"
            android:layout_height="wrap_content" />
        <RadioButton
-           android:gravity="center_horizontal"
+           android:gravity="center"
            android:id="@+id/design_id"
            android:text="设计师"
            android:button="@null"
