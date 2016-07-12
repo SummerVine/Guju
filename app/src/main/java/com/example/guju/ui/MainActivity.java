@@ -96,10 +96,8 @@ public class MainActivity extends AppCompatActivity {
         group = ((RadioGroup) findViewById(R.id.group_id));
         //new 4 个模块的fragment--------------------需要各自更改
 
-        Fragment fragment1 = new BaseFragment();
+
         PictureLibraryFragment plf = new  PictureLibraryFragment();
-        Fragment fragment3 = new BaseFragment();
-        Fragment fragment4 = new BaseFragment();
         Fragment fragment1 = new DecoratePlanFragment();
         Fragment fragment2 = new PictureLibraryFragment();
         Fragment fragment3 = new StrategyFragment();
