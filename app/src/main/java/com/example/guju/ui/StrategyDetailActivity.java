@@ -163,8 +163,7 @@ public void changeTab(TabLayout.Tab tab,int position){
         content = ((ViewPager) findViewById(R.id.viewpager_stategy_id));
         collapsing.setTitle(name);
         collapsing.setCollapsedTitleTextColor(Color.rgb(4,53,138));
-        Glide.with(this).load(userImg).into(imgBg);
         Glide.with(this).load(userImg).transform(new GlideCircleTransform(this)).crossFade().into(headIcon);
-
+        Glide.with(this).load(userImg).into(imgBg);
     }
 }
