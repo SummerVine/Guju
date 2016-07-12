@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <TextView
+        android:textSize="30dp"
+        android:gravity="center_horizontal"
+        android:background="#ff2222"
+        android:text="欢迎注册谷居装修"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+<EditText
+    android:layout_marginTop="120dp"
+    android:hint="用户名"
+    android:background="@mipmap/community_house_dust"
+    android:id="@+id/re_name_id"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+    <EditText
+        android:hint="密码"
+        android:background="@mipmap/community_house_dust"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/re_pwd_id"
+        />
+    <Button
+        android:onClick="Registered"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="申请"
+        />
+</LinearLayout>

@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
+        android:layout_centerVertical="true"
         android:id="@+id/iv_id"
-        android:layout_height="130dp"
-        android:layout_width="130dp"
-        android:src="@mipmap/ic_launcher"
+        android:layout_height="100dp"
+        android:layout_width="100dp"
         android:layout_marginRight="10dp"
         android:layout_alignParentLeft="true"
         />
+
     <LinearLayout
         android:layout_marginTop="10dp"
         android:orientation="vertical"

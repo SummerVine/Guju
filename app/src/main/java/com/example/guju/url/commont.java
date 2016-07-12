@@ -1,5 +1,8 @@
 package com.example.guju.url;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 /**
  * Created by Administrator on 2016/7/5.
  */

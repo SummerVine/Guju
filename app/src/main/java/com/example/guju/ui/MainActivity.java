@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import com.example.guju.R;
 import com.example.guju.fragment.DecoratePlanFragment;
+import com.example.guju.fragment.FourFragment;
 import com.example.guju.fragment.PictureLibraryFragment;
 import com.example.guju.fragment.StrategyFragment;
-import com.example.guju.fragment.FourFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +27,16 @@ public class MainActivity extends AppCompatActivity {
     private boolean isExit = false;
     private ImageView login;
     private ImageView freeDesign;
+    private  static String  str;
+    public static  Handler loginHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+             str = (String) msg.obj;
+            // url= (Uri.parse(str));
+           // Glide.with().load(url).into(login);
+        }
+    };
     private Handler mHandler=new Handler(){
     @Override
     public void handleMessage(Message msg) {
@@ -44,21 +54,24 @@ public class MainActivity extends AppCompatActivity {
         linked();
 
     }
+
+        //Glide.with(this).load(str).into(login);
     private void aboutFreedesign() {
         freeDesign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, FreedesignActivity.class);
                 startActivity(intent);
+
             }
         });
     }
-
     private void aboutLogin() {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+          Intent intent=new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent);
             }
         });
     }
