@@ -95,14 +95,14 @@ public class MainActivity extends AppCompatActivity {
         //new 4 个模块的fragment--------------------需要各自更改
 
 
-        PictureLibraryFragment plf = new  PictureLibraryFragment();
+       
 
         Fragment fragment1 = new DecoratePlanFragment();
         Fragment fragment2 = new PictureLibraryFragment();
         Fragment fragment3 = new StrategyFragment();
         Fragment fragment4 = new FourFragment();
         fragments.add(fragment1);
-        fragments.add(plf);
+        fragments.add(fragment2);
         fragments.add(fragment3);
         fragments.add(fragment4);
         getFragmentManager().beginTransaction().replace(R.id.base_fragment_id, fragments.get(0)).commit();
