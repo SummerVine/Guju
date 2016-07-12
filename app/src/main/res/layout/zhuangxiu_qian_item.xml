@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <TextView
-
+android:background="#ffffff"
     android:layout_width="90dp"
     android:layout_height="50dp"
     android:id="@+id/tv_qian_id"/>

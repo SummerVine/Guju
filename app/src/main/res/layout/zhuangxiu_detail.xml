@@ -40,18 +40,39 @@ android:layout_marginBottom="@+id/webview_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <ImageView
+        android:id="@+id/iv_xin"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
+       android:background="@drawable/guju_love"
      ></ImageView>
-        <ImageView
+        <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="0"/>
         <ImageView
+            android:id="@+id/iv_zhan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/comment"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="0"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_free"
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:layout_height="match_parent" />
+            android:text="免费设计"
+
+            android:layout_height="match_parent"
+            android:background="#ff00ff"/>
     </LinearLayout>
 </RelativeLayout>
 </LinearLayout>

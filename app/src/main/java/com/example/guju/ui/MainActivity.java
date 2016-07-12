@@ -95,8 +95,10 @@ public class MainActivity extends AppCompatActivity {
         //new 4 个模块的fragment--------------------需要各自更改
 
 
-       
 
+
+
+        PictureLibraryFragment plf = new  PictureLibraryFragment();
         Fragment fragment1 = new DecoratePlanFragment();
         Fragment fragment2 = new PictureLibraryFragment();
         Fragment fragment3 = new StrategyFragment();

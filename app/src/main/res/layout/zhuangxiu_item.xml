@@ -2,15 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="220dp">
+    android:layout_height="120dp">
     <LinearLayout
         android:layout_width="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:layout_height="200dp"
+        android:layout_height="115dp"
 
        >
         <TextView
+            android:layout_marginTop="10dp"
             android:text="@string/explain"
             android:textColor="#000000"
             android:layout_width="match_parent"
@@ -18,7 +19,6 @@
             android:layout_weight="1"
             android:id="@+id/tv_explain_id"/>
         <LinearLayout
-
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -35,7 +35,6 @@
                 android:layout_width="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_height="wrap_content"
-
                 android:background="@drawable/guju_love"/>
             <TextView
                 android:layout_width="wrap_content"
