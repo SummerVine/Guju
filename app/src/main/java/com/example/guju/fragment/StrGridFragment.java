@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.android.volley.Response;
@@ -45,10 +46,11 @@ public class StrGridFragment extends Fragment {
        gridView.setAdapter(adapter);
         loadData();
         aboutRefresh();
-        gridView.setOnClickListener(new View.OnClickListener() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent=new Intent(getActivity(), StrategyActivity.class);
+                intent.putExtra("str","http://m.guju.com.cn/release/views/gonglue/?id=4133");
                 startActivity(intent);
             }
         });
