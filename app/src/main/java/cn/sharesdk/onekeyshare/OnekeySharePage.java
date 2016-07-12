@@ -8,6 +8,8 @@
 
 package cn.sharesdk.onekeyshare;
 
+import com.mob.tools.FakeActivity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 

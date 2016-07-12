@@ -17,14 +17,13 @@ public class DataServer {
         List<DecoratePlan> list = new ArrayList<>();
         for (int i = 0; i < lenth; i++) {
             DecoratePlan plan = new DecoratePlan();
-            plan.setTitle("Chad" + i);
-//            plan.setPanDetail("谷居设计");
-//            plan.setPlanAuthor("装修设计师"+i);
+            plan.setPlanName("Chad" + i);
+            plan.setPanDetail("谷居设计");
+            plan.setPlanAuthor("装修设计师"+i);
 //            plan.setPlanAuthorIcon("https://avatars1.githubusercontent.com/u/7698209?v=3&s=460");
 //            plan.setPlanImgUrl("https://avatars1.githubusercontent.com/u/7698209?v=3&s=460");
             list.add(plan);
         }
         return list;
     }
-
 }

@@ -5,14 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-
 import com.example.guju.R;
+import com.example.guju.fragment.BaseFragment;
 import com.example.guju.fragment.DecoratePlanFragment;
 import com.example.guju.fragment.FourFragment;
 import com.example.guju.fragment.PictureLibraryFragment;
@@ -93,12 +95,17 @@ public class MainActivity extends AppCompatActivity {
         freeDesign = ((ImageView) findViewById(R.id.image_freedesign_id));
         group = ((RadioGroup) findViewById(R.id.group_id));
         //new 4 个模块的fragment--------------------需要各自更改
+
+        Fragment fragment1 = new BaseFragment();
+        PictureLibraryFragment plf = new  PictureLibraryFragment();
+        Fragment fragment3 = new BaseFragment();
+        Fragment fragment4 = new BaseFragment();
         Fragment fragment1 = new DecoratePlanFragment();
         Fragment fragment2 = new PictureLibraryFragment();
         Fragment fragment3 = new StrategyFragment();
         Fragment fragment4 = new FourFragment();
         fragments.add(fragment1);
-        fragments.add(fragment2);
+        fragments.add(plf);
         fragments.add(fragment3);
         fragments.add(fragment4);
         getFragmentManager().beginTransaction().replace(R.id.base_fragment_id, fragments.get(0)).commit();
