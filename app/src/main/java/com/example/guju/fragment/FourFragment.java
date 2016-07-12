@@ -1,12 +1,14 @@
 package com.example.guju.fragment;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.android.volley.Response;
@@ -37,9 +39,16 @@ public class FourFragment extends  BaseFragment {
     private Button citySelect;
     private String city="北京";
     private int page=0;
+    private ImageView load;
+    private AnimationDrawable drawable;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view=  inflater.inflate(R.layout.activity_guide4,null);
+        load = ((ImageView) view.findViewById(R.id.image_load_id));
+        load.setBackgroundResource(R.drawable.load);
+        drawable = (AnimationDrawable) load.getBackground();
+
         citySelect = ((Button) view.findViewById(R.id.city_button_id));
         citySelect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,12 +115,14 @@ public class FourFragment extends  BaseFragment {
     }
 
     private void initData() {
+        drawable.start();
         StringRequest request=new StringRequest(Urlan.url4(city,page), new Response.Listener<String>(){
             @Override
             public void onResponse(String response) {
                 Gson gson=new Gson();
                 Designers designers=gson.fromJson(response,Designers.class);
                 adapter.addAll(designers.getProfessionals());
+                load.setVisibility(View.GONE);
 
             }
         },null);
