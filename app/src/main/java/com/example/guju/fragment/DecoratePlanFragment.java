@@ -494,8 +494,9 @@ public class DecoratePlanFragment extends BaseFragment  implements SwipeRefreshL
         mQuickAdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                //TODO
-                activity.startActivity(new Intent(activity, StrategyActivity.class));
+               Intent intent= new Intent(activity, StrategyActivity.class);
+                intent.putExtra("str","http://m.guju.com.cn/release/views/gonglue/?id=4133");
+                activity.startActivity(intent);
             }
         });
     }
