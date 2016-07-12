@@ -59,5 +59,7 @@ dependencies {
     compile files('libs/MobCommons-2016.0623.1641.jar')
     compile 'se.codeunlimited.android.bitmap_utils:android-bitmap-utils:0.4'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.8.8'
     compile 'org.xutils:xutils:3.3.36'
 }

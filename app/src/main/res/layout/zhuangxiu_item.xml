@@ -27,11 +27,13 @@
             android:text="@string/type"
             android:textColor="#000000"
             android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"
             android:id="@+id/tv_typee_id"/>
             <ImageView
                 android:id="@+id/iv_love_id"
                 android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_height="wrap_content"
 
                 android:background="@drawable/guju_love"/>
@@ -39,17 +41,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/pru"
+                android:layout_gravity="center_vertical"
                 android:textColor="#000000"
                 android:id="@+id/tv_count_id"/>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/iv_zhan_id"
+                android:layout_gravity="center_vertical"
                android:background="@drawable/comment"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/zan"
+                android:layout_gravity="center_vertical"
                 android:textColor="#000000"
                 android:id="@+id/tv_good"/>
     </LinearLayout>
@@ -58,7 +63,7 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
         android:id="@+id/iv_tupian_id"
         android:src="@mipmap/ic_launcher"/>
 
