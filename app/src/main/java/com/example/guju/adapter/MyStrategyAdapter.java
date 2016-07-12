@@ -67,6 +67,7 @@ this.callback=callback;
         }
 
 
+
         pathDetail = "http://m.guju.com.cn/release/views/gonglue/?id="+ds.get(i).getId();
         callback.getAllData(pathDetail);
 
@@ -82,15 +83,16 @@ this.callback=callback;
 
         return view;
     }
-    public void callData(){
 
-    }
     public void addAll(List<StrategyEntity.StrategyListBean> dd){
         ds.addAll(dd);
         notifyDataSetChanged();
     }
 
-
+    public void clear() {
+        ds.clear();
+        notifyDataSetChanged();
+    }
     public class ViewHolder{
         private TextView tv_explain;
         private TextView tv_typee;
