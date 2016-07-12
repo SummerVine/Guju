@@ -57,7 +57,6 @@ public class StrategyDetailActivity extends FragmentActivity {
             @Override
             public void onClick(View view) {
                 MyApp.getApp().showShare("分享","分享","分享");
-
             }
         });
     }
