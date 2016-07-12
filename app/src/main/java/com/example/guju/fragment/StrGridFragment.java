@@ -1,6 +1,7 @@
 package com.example.guju.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import com.example.guju.MyApp;
 import com.example.guju.R;
 import com.example.guju.adapter.StrGridAdapter;
 import com.example.guju.bean.StrGrid;
+import com.example.guju.ui.StrategyActivity;
 import com.example.guju.url.Urlan;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -30,10 +32,12 @@ public class StrGridFragment extends Fragment {
     private StringRequest request;
     private int page=0;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
        View view=inflater.inflate(R.layout.fragment_strgride,null);
+
         Bundle bundle=getArguments();
         name = (String) bundle.get("name");
         gridView = ((PullToRefreshGridView) view.findViewById(R.id.gridview_str_id));
@@ -41,12 +45,13 @@ public class StrGridFragment extends Fragment {
        gridView.setAdapter(adapter);
         loadData();
         aboutRefresh();
-//        gridView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+        gridView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(), StrategyActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
     private void aboutRefresh() {
@@ -77,6 +82,7 @@ public class StrGridFragment extends Fragment {
                 Gson gson=new Gson();
                 StrGrid strGrid=gson.fromJson(response,StrGrid.class);
                 adapter.addAll(strGrid.getIdeabooks());
+
             }
         }, new Response.ErrorListener() {
             @Override
