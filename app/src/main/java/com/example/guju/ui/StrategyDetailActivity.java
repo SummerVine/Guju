@@ -41,6 +41,7 @@ public class StrategyDetailActivity extends FragmentActivity {
     private String userImg;
     private int currentPosition=0;
     private ImageView imgBg;
+    private ImageView share;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,6 +52,13 @@ public class StrategyDetailActivity extends FragmentActivity {
         aboutContent();
         setTabs();
         initEven();
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               //?????????????????????????????????????????????
+
+            }
+        });
     }
 
     private void initEven() {
@@ -148,6 +156,7 @@ public void changeTab(TabLayout.Tab tab,int position){
         collapsing = ((CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar));
         imgBg = ((ImageView) findViewById(R.id.img_bg_id));
         headIcon = ((ImageView) findViewById(R.id.headicon_stategy_id));
+        share = ((ImageView) findViewById(R.id.share_stategy_id));
         info = ((TextView) findViewById(R.id.info_stategy_id));
         tabLayout = ((TabLayout) findViewById(R.id.tabs_stategy_id));
         content = ((ViewPager) findViewById(R.id.viewpager_stategy_id));
