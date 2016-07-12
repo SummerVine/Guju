@@ -1,5 +1,6 @@
 package com.example.guju.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import com.example.guju.MyApp;
 import com.example.guju.R;
 import com.example.guju.adapter.StraAdapter;
 import com.example.guju.bean.Stra;
+import com.example.guju.ui.StrategyActivity;
 import com.example.guju.url.Urlan;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -29,10 +31,12 @@ public class StraFragment extends Fragment {
     private String name;
     private StringRequest request;
     private int page=0;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_listview,null);
+
         Bundle bundle=getArguments();
         name = (String) bundle.get("name");
         listView = ((PullToRefreshListView) view.findViewById(R.id.list_sfragment_id));
@@ -41,12 +45,13 @@ public class StraFragment extends Fragment {
        listView.setAdapter(adapter);
         loadData();
         aboutRefresh();
-//        listView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+        listView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(), StrategyActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
     private void aboutRefresh() {
@@ -78,6 +83,7 @@ public class StraFragment extends Fragment {
                 Gson gson=new Gson();
                 Stra stra=gson.fromJson(response,Stra.class);
                 adapter.addAll(stra.getStrategyList());
+
             }
         }, new Response.ErrorListener() {
             @Override
