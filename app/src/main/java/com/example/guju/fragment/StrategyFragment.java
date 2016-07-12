@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.example.guju.MyApp;
@@ -30,6 +30,7 @@ import com.example.guju.utils.GetDetailDataCallBack;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -47,14 +48,11 @@ public class  StrategyFragment extends BaseFragment  {
     private ImageView iv_qian, iv_zhong, iv_hou;
     private TextView tv_qian_id;
     private PullToRefreshListView ptrl_id;
-    List<StrategyEntity.StrategyListBean> ds;
+    List<StrategyEntity.StrategyListBean>  ds = new LinkedList<>();
     private MyStrategyAdapter strategyadapter;
     private GridView lv_dialog_id;
     private String path=commont.strategyUrl[0];
     private  String webPath;
-    private int page=0;
-
-
 
     public void showPopupWindow(View parent, String[] title) {
         //加载布局
@@ -78,13 +76,13 @@ public class  StrategyFragment extends BaseFragment  {
                 int xpos = manager.getDefaultDisplay().getWidth() / 2 - popupWindow.getWidth() / 2;
         //xoff,yoff基于anchor的左下角进行偏移。
         popupWindow.showAsDropDown(parent, xpos, 0);
-
+        initData(ds);//初始化数据源
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 tv_qian_id.setText( title1[i]);//替换成此时加载url类型值
                 path = (commont.strategyUrl[i]);//更改加载的url
-                ds.clear();//清除原有数据
+                strategyadapter.clear();//清除原有数据
                 initData(ds);//初始化数据源
                 fuyong();//适配器等
                 //关闭popupWindow
@@ -96,10 +94,23 @@ public class  StrategyFragment extends BaseFragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_zhuangxiu, null);
+        ptrl_id = (PullToRefreshListView) view.findViewById(R.id.ptrl_id);
+
         iv_qian = (ImageView) view.findViewById(R.id.iv_qian_id);
         iv_zhong = (ImageView) view.findViewById(R.id.iv_zhong_id);
         iv_hou = (ImageView) view.findViewById(R.id.iv_hou_id);
         tv_qian_id=(TextView) view.findViewById(R.id.tv_qian_id);
+        initData(ds);
+        fuyong();
+        ptrl_id.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), StrategyActivity.class);
+                intent.putExtra("str",webPath);
+                startActivity(intent);
+                //Log.i("teg","=========================");
+            }
+        });
         iv_qian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,21 +129,6 @@ public class  StrategyFragment extends BaseFragment  {
                 showPopupWindow(iv_hou, title3);
             }
         });
-        ptrl_id = (PullToRefreshListView) view.findViewById(R.id.ptrl_id);
-        Log.i("pk","==============================================");
-        ds = new LinkedList<>();
-        initData(ds);
-        fuyong();
-        ptrl_id.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), StrategyActivity.class);
-                intent.putExtra("str",webPath);
-                startActivity(intent);
-                //Log.i("teg","=========================");
-            }
-        });
-
             return view;
         }
     private void fuyong() {
@@ -157,6 +153,12 @@ public class  StrategyFragment extends BaseFragment  {
         });
     }
     private void initData(final List<StrategyEntity.StrategyListBean> ds) {
+        strategyadapter=new MyStrategyAdapter(ds, getActivity() , new GetDetailDataCallBack() {
+            @Override
+            public void getAllData(String interPath) {
+                webPath = interPath;
+            }
+        });
         StringRequest request = new StringRequest(path, new Response.Listener<String>() {
 
 
@@ -165,6 +167,7 @@ public class  StrategyFragment extends BaseFragment  {
                 Gson gson = new Gson();
                 StrategyEntity strategyEntity = gson.fromJson(response, StrategyEntity.class);
                 ds.addAll(strategyEntity.getStrategyList());
+                strategyadapter.notifyDataSetChanged();
 
             }
         }, null);
