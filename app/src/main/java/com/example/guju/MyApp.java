@@ -11,11 +11,16 @@ import com.lidroid.xutils.exception.DbException;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
+import com.example.guju.bean.User;
+import com.lidroid.xutils.DbUtils;
+import com.lidroid.xutils.exception.DbException;
+
 /**
  * Created by green on 2016/7/4.
  */
 public class MyApp extends Application {
     private static MyApp app;
+    private DbUtils dbUtils;
     private RequestQueue requestqueue;
     private DbUtils dbUtils;
     public static MyApp getApp() {

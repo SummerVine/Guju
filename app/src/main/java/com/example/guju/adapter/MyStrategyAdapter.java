@@ -12,19 +12,23 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.guju.R;
 import com.example.guju.entity.StrategyEntity;
+import com.example.guju.utils.GetDetailDataCallBack;
 
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/7/9.
+ * Created by Administrpator on 2016/7/9.
  */
-public class MyStrategyAdapter extends BaseAdapter {
+public class MyStrategyAdapter extends BaseAdapter  {
     private List<StrategyEntity.StrategyListBean> ds;
     private Context context;
+private GetDetailDataCallBack callback;
+    private String pathDetail;
 
-    public MyStrategyAdapter(List<StrategyEntity.StrategyListBean> ds, Context context) {
+    public MyStrategyAdapter(List<StrategyEntity.StrategyListBean> ds, Context context,GetDetailDataCallBack callback) {
         this.ds = ds;
         this.context = context;
+this.callback=callback;
     }
 
     @Override
@@ -61,7 +65,14 @@ public class MyStrategyAdapter extends BaseAdapter {
         }else{
             vh= (ViewHolder) view.getTag();
         }
-        Uri url= (Uri.parse(ds.get(i).getUser().getUserImageLarge()));
+
+
+        pathDetail = "http://m.guju.com.cn/release/views/gonglue/?id="+ds.get(i).getId();
+        callback.getAllData(pathDetail);
+
+        String path="http://img.guju.com.cn/dimages/"+ds.get(i).getCovorPhotoId()+"_0_w220_h200_m0.jpg";
+        Uri url= (Uri.parse(path));
+       // Uri urlDetail= (Uri.parse(pathDetail));
         Glide.with(context).load(url).into(vh.iv_tupian);
         vh.tv_explain.setText((CharSequence) ds.get(i).getTitle());
         vh.tv_typee.setText(ds.get(i).getCategoryName()+"");
@@ -71,10 +82,15 @@ public class MyStrategyAdapter extends BaseAdapter {
 
         return view;
     }
+    public void callData(){
+
+    }
     public void addAll(List<StrategyEntity.StrategyListBean> dd){
         ds.addAll(dd);
         notifyDataSetChanged();
     }
+
+
     public class ViewHolder{
         private TextView tv_explain;
         private TextView tv_typee;

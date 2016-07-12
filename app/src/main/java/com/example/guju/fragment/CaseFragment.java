@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.android.volley.Response;
@@ -35,7 +36,7 @@ public class CaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_listview,null);
         listView = ((PullToRefreshListView) view.findViewById(R.id.list_sfragment_id));
-
+        listView.setEmptyView((ImageView)view.findViewById(R.id.empty_id));
         Bundle bundle=getArguments();
         name = (String) bundle.get("name");
         adapter = new CaseAdapter(new ArrayList<Case.ProjectsBean>(),getActivity());

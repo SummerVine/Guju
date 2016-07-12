@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.android.volley.Response;
@@ -35,6 +36,7 @@ public class StraFragment extends Fragment {
         Bundle bundle=getArguments();
         name = (String) bundle.get("name");
         listView = ((PullToRefreshListView) view.findViewById(R.id.list_sfragment_id));
+        listView.setEmptyView((ImageView)view.findViewById(R.id.empty_id));
         adapter = new StraAdapter(new ArrayList<Stra.StrategyListBean>(),getActivity());
        listView.setAdapter(adapter);
         loadData();
