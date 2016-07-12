@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
      android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+   >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
@@ -17,6 +18,7 @@
         <ImageView
             android:id="@+id/share_id"
             android:clickable="true"
+            android:onClick="showShare"
             android:layout_centerVertical="true"
             android:src="@drawable/btn_share"
             android:layout_width="wrap_content"
@@ -24,11 +26,32 @@
             android:layout_alignParentRight="true"
              />
     </RelativeLayout>
-
     <WebView
-        android:id="@+id/web_id"
+        android:id="@+id/webview_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></WebView>
+        android:layout_height="0dp"
+        android:layout_weight="1"></WebView>
 
-
+<RelativeLayout
+android:layout_marginBottom="@+id/webview_id"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+     ></ImageView>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</RelativeLayout>
 </LinearLayout>
