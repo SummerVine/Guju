@@ -1,10 +1,11 @@
 package com.example.guju.adapter;
 
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,9 +37,15 @@ public class ShareAdapter extends MyBaseAdapter<Share.PhotosBean> {
         Log.i("tag",getItem(i).getId()+"---------id");
         Glide.with(context).load("http://img.guju.com.cn/dimages/"+getItem(i).getId()+"_0_w220_h200_m0.jpg").into(vh.imgLarge);
         Glide.with(context).load(getItem(i).getUser().getUserImage().getSmall()).transform(new GlideCircleTransform(context)).crossFade().into(vh.imgSmall);
-        ObjectAnimator animator = ObjectAnimator.ofFloat(view,"translationX",1000,0);
-        animator.setDuration(1000);
-        animator.start();
+        AlphaAnimation aa=new AlphaAnimation(0.3f,1f);
+        aa.setDuration(2000);
+        aa.setFillAfter(true);
+        vh.imgLarge.startAnimation(aa);
+        ScaleAnimation sa=new ScaleAnimation(0.8f,1f,0.8f,1f,ScaleAnimation.RELATIVE_TO_SELF,0.5f,ScaleAnimation.RELATIVE_TO_SELF,0.5f);
+        sa.setFillAfter(true);
+        sa.setDuration(1000);
+        vh.imgLarge.startAnimation(sa);
+
         return view;
     }
     class ViewHolder {
