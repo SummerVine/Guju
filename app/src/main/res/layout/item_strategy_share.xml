@@ -11,17 +11,18 @@
     android:layout_height="200dp" />
 
     <LinearLayout
-        android:background="#33000000"
+        android:background="@drawable/guju_wordback"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:layout_alignBottom="@+id/imglarge_share_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="60dp">
     <ImageView
         android:id="@+id/imgsmall_share_id"
         android:layout_marginLeft="10dp"
-        android:layout_marginBottom="5dp"
-        android:layout_width="60dp"
-        android:layout_height="60dp" />
+
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
     <TextView
         android:layout_gravity="center_vertical"
         android:id="@+id/name_share_id"
